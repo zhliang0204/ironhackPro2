@@ -6,6 +6,9 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const Food = require("../models/Food");
+const Message = require("../models/Message");
+
 
 const bcryptSalt = 10;
 
@@ -22,12 +25,44 @@ let users = [
   {
     username: "alice",
     password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
+    
   },
   {
     username: "bob",
     password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
+  
   }
 ]
+
+let foods = [
+  {
+    name:"Chole Bature",
+    cuisine:"indian",
+    description:"lots of foods can be eaten by 2-3 people"
+
+  }
+]
+
+let message = [
+  {
+    content : "i want this food",
+    sender: "Binu",
+    receiver:"rahul"
+  },
+]
+
+User.create(users)
+  .then(users =>
+    console.log(`Created ${users.length} users`)
+  )
+Food.create(foods)
+  .then(foods =>
+    console.log(`Created ${foods.length} foods`)
+  )
+Message.create(message)
+  .then(message =>
+    console.log(`Created ${message.length} message`)
+  )
 
 User.deleteMany()
 .then(() => {

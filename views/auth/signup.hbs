@@ -8,7 +8,31 @@
 
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+  
+  <br><br>
+
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" placeholder="Your email">
+  
+  <br><br>
+
+  <label for="address">Address
+  <input id="address" type="text" name="address1" placeholder="Address Line 1">
+  <br><br>
+  
+  <input id="address1" type="text" name="address2" placeholder="Address Line 2">
+  <br><br>
+  </label>
+
+  <label for="pincode">Zip/Postal Code </label>
+  <input id="pincode" type="number" name="pincode" placeholder="Postal Code">
+ 
+
+  <br><br>
+  <label for="country">Country</label>
+  <input id="country" type="text" name="country" placeholder="Country">
+  
+  
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}

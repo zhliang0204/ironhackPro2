@@ -23,9 +23,17 @@ router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
+
 router.post("/signup", (req, res, next) => {
-  const username = req.body.username;
+  const username = req.body.username; 
   const password = req.body.password;
+  const email = req.body.email;
+  const address1 = req.body.address1;
+  const address2 = req.body.address2;
+  const pincode = req.body.pincode;
+  const country = req.body.country;
+  //console.log(pincode);
+
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
@@ -39,10 +47,15 @@ router.post("/signup", (req, res, next) => {
 
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
-
+    
     const newUser = new User({
       username,
-      password: hashPass
+      password: hashPass,
+      email,
+      address1,
+      address2,
+      pincode,
+      country
     });
 
     newUser.save()
