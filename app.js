@@ -73,6 +73,15 @@ app.use(session({
 }))
 app.use(flash());
 require('./passport')(app);
+
+// Use middleware to check user connected
+app.use((req, res, next) => {
+  res.locals.isConnected = !!req.user;
+
+  res.locals.isAdmin = req.user && req.user.role === "Admin";
+
+  next();
+})
     
 
 const index = require('./routes/index');
@@ -80,6 +89,9 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
+const foodInfo = require('./routes/food');
+app.use('/', foodInfo);
       
 
 module.exports = app;
