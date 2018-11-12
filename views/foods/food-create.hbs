@@ -1,3 +1,23 @@
 {{!-- upload food information --}}
 {{!-- ppt page 9 --}}
 <h3>food information upload</h3>
+
+<h2>Upload a new food</h2>
+<form action="/profile/create" method="post" enctype="multipart/form-data">
+  <label>Title</label>
+  <input type="text" name="name">
+  <br>
+
+  <label>Cuisine</label>
+  <input type="text" name="cuisine">
+  <br>
+
+  <label>Description</label>
+  <input type="text" name="description">
+  <br>
+
+  <label>Poster</label>
+  <input type="file" name="photo">
+  <br>
+  <input type="submit" value="SAVE">
+</form>

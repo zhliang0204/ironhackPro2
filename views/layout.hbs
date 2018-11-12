@@ -16,6 +16,11 @@
     <a href="/auth/login">Login</a>
     <a href="/auth/signup">Signup</a>
     <a href="/auth/logout">Logout</a>
+    {{#if isConnected}}
+    <a href="/foods">Profile</a>
+    <a href="/profile/create">Upload</a>
+    {{/if}}
+
   </nav>
 
   {{{body}}}
