@@ -1,18 +1,29 @@
 {{!-- home page before login --}}
 {{!-- PPT page 1 --}}
-<h3>home page before login</h3>
+<h3>home page before/after login</h3>
+
 
 <h1>Welcome to the Foods Project</h1>
-<div class="foods-wrapper">
+
+  {{#if isConnected}}
+    <input type="text">
+    <button>search bar</button>
+  {{/if}}
+   <br>
+  <div class="foods-wrapper">
   {{#each foods}}
   <div class="food-item">
     <img src="{{this.imgPath}}" alt="">
       <h4>{{this.name}}"</h4>
       <h4>{{this.cuisine}}</h4>
+      {{#if ../isConnected}}
+      <a href="/foods/{{this._id}}">Details</a>
+      <a href="/foods/order/{{this._id}}">I want</a>
+      {{/if}}
       
       {{!-- <img src="{{}}" --}}
   </div>
-  {{else}}
-    <p>There are no foods yet! :(</p>
+  {{!-- {{else}} --}}
+    {{!-- <p>There are no foods yet! :(</p> --}}
   {{/each}}
 </div>

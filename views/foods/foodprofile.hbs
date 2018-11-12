@@ -10,14 +10,20 @@
     <h4>{{this.cuisine}}</h4>
     <h4>{{this.availability}}</h4>
     <h4>{{this._owner}}</h4>
-    <a href="/profile/{{this._id}}">Message</a>
+    {{#if this.status}}
+    <h4>No Message</h4>
+    {{/if}}
+
+    {{#unless this.status}}
+    <a href="/profile/message/{{this._id}}">Message</a>
+    {{/unless}}
+
     <a href="/profile/edit/{{this._id}}">Edit</a>
     <a href="/profile/delete/{{this._id}}">Delete</a>
 
 
       
-      {{!-- <img src="{{}}" --}}
-  </div>
+
   {{else}}
     <p>There are no foods yet! :(</p>
   {{/each}}

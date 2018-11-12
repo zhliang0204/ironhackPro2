@@ -31,7 +31,6 @@ router.post('/profile/create',ensureAuthenticated, uploadCloud.single('photo'),(
   const imgPath = req.file.url;
   const imgName = req.file.originalname;
   const _owner = req.user._id;
-  // const availability = 
   const newFood = new Food({name, cuisine, description, availability,imgPath, imgName, _owner})
   newFood.save()
   .then(food => {
@@ -40,15 +39,21 @@ router.post('/profile/create',ensureAuthenticated, uploadCloud.single('photo'),(
   .catch(error => {
     console.log(error)
   })
-})
+ })
 
 // home page after login
 // ppt page 4
 // list brief information of all food after login
 router.get('/foods', ensureAuthenticated,(req, res, next) => {
-
-  res.render('foods/afterloginindex');
+  Food.find()
+  .then((foods) => {
+    res.render('foods/afterloginindex', { foods });
+  })
+  .catch((error) => {
+    console.log(error)
+  })
 });
+  
 
 
 // ppt page 4
@@ -69,30 +74,58 @@ router.get('/foods/:foodId', ensureAuthenticated, (req, res, next)=> {
   Food.findById(id)
   .then(foodFromDb=>{
     User.findById(foodFromDb._owner).then(user => {
-      console.log(foodFromDb);
-      console.log(user);
-      // res.render('foods/food-detail',{food:foodFromDb});
+      // console.log(foodFromDb);
+      // console.log(user);
+      res.render('foods/food-detail',{food:foodFromDb, user:user});
     })
    
-  })
-.catch(error => {
-  next(error)
-})
-  res.render('foods/food-detail')
+// router.get('/foods/:id', ensureAuthenticated, (req, res, next)=> {
+//   // foodId: food id
+//   let id = req.params.id
+//   Food.findById(id)
+//   .then(foodFromDb=>{
+//     res.render('foods/food-detail',{food:foodFromDb});
+//   })
+// .catch(error => {
+//   next(error)
+// })
+//   res.render('foods/food-detail')
 });
+})
 
 // food order information
 // ppt page 6
 router.get('/foods/order/:foodId', ensureAuthenticated, (req, res, next)=> {
+  let foodId = req.params.foodId;
+  Food.findById(foodId).then(food=> {
+    res.render('foods/food-order',{food})
+  })
 
-  res.render('foods/food-order')
+  
 });
 
 // submit the order information
 // ppt page 6
 // redirect to the home page(login) after submit successfully
 router.post('/foods/order/:foodId', ensureAuthenticated,(req, res, next) => {
-  res.redirect('/foods')
+  let foodId = req.params.foodId;
+  const msg = req.body.message;
+  // console.log("msg: ", msg)
+  Mesg.create({
+    content:msg,
+    _foodId: foodId,
+    _sender:req.user.id,
+  }).then(message => {
+    // console.log(message)
+    // consider new page
+    // res.redirect('/foods')
+    Food.findByIdAndUpdate(message._foodId, {
+      status: 0
+    }).then(food => {
+      res.redirect('/foods')
+    })
+  })
+  
 });
 
 // list brief information of all food provieded by one user 
@@ -100,7 +133,7 @@ router.post('/foods/order/:foodId', ensureAuthenticated,(req, res, next) => {
 router.get('/profile', ensureAuthenticated, (req, res, next) => {
   // userId: userid
   let userId = req.user.id;
-  console.log(userId)
+  // console.log(userId)
   Food.find({_owner:  userId}).then(foods => {
     res.render('foods/foodprofile', {foods: foods,userId:userId})
   })
@@ -109,8 +142,16 @@ router.get('/profile', ensureAuthenticated, (req, res, next) => {
 
 // watch order message 
 // ppt page 8
-router.get('/profile/:foodId', ensureAuthenticated, (req, res, next) => {
-  res.render('foods/foodprofile-orderInfo')
+router.get('/profile/message/:foodId', ensureAuthenticated, (req, res, next) => {
+  let foodId = req.params.foodId;
+  Food.findById(foodId).then(food => {
+    // console.log(food)
+    // res.render('foods/foodprofile-orderInfo',{food:food})
+    Mesg.findOne({_foodId:foodId}).then(message => {
+      res.render('foods/foodprofile-orderInfo',{food:food, message:message})
+    })
+  })
+  
 })
 
 
@@ -121,7 +162,7 @@ router.get('/profile/edit/:foodId', ensureAuthenticated, (req, res, next) => {
   // id: foodid
   let foodId = req.params.foodId;
   Food.findById(foodId).then(food => {
-    console.log(food)
+    // console.log(food)
     res.render('foods/food-edit', {food})
   })
   
