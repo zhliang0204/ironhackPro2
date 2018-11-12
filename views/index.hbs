@@ -1,3 +1,10 @@
 {{!-- home page before login --}}
 {{!-- PPT page 1 --}}
 <h3>home page before login</h3>
+{{!-- <a href="/">Home</a> --}}
+<section>
+  {{#each pictures}}
+    <img src="{{ this.path }}" alt="{{ this.originalName }}" />
+    <h3>{{ this. imgName }}</h3>
+  {{/each}}
+</section>

@@ -13,7 +13,7 @@ const uploadCloud = require('../config/cloudinary.js')
 // ppt page 4
 // list brief information of all food after login
 router.get('/foods', (req, res, next) => {
-
+         
   res.render('foods/afterloginindex');
 });
 
