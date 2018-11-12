@@ -67,17 +67,20 @@ router.post('/foods', ensureAuthenticated,(req, res, next)=> {
 
 // detail information about one food
 // ppt page 5
-router.get('/foods/:id', ensureAuthenticated, (req, res, next)=> {
+router.get('/foods/:foodId', ensureAuthenticated, (req, res, next)=> {
+
   // foodId: food id
-  let id = req.params.id
+ 
+  let id = req.params.foodId
   Food.findById(id)
   .then(foodFromDb=>{
-    res.render('foods/food-detail',{food:foodFromDb});
-  })
-.catch(error => {
-  next(error)
-})
-})
+    User.findById(foodFromDb._owner).then(user => {
+      console.log(foodFromDb);
+      console.log(user);
+      res.render('foods/food-detail',{food:foodFromDb, user:user});
+    })
+ });
+ })
 
 // food order information
 // ppt page 6
