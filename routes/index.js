@@ -8,13 +8,13 @@ const Food = require('../models/Food')
 // difficulty:filter function
 // reference: week5 day5 express| file upload cdn
 router.get('/', (req, res, next) => {
-  res.render('index');
+  Food.find()
+  .then((foods) => {
+    res.render('index', { foods });
+  })
+  .catch((error) => {
+    console.log(error)
+  })
 });
-
-router.post('/', (req, res, next)=> {
-  // functionality about filter
-  // question: filter  back-end or front-end??
-  res.render('index')
-})
 
 module.exports = router;

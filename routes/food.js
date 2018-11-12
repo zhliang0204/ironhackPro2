@@ -27,10 +27,12 @@ router.get('/profile/create',ensureAuthenticated, (req,res,next)=> {
 // ppt page 9
 // redirect to the user profile after submit successfully
 router.post('/profile/create',ensureAuthenticated, uploadCloud.single('photo'),(req, res, next)=> {
-  const { name, cuisine, description } = req.body;
+  const { name, cuisine, description, availability } = req.body;
   const imgPath = req.file.url;
-  // const imgName = req.file.originalname;
-  const newFood = new Food({name, cuisine, description, imgPath})
+  const imgName = req.file.originalname;
+  const _owner = req.user._id;
+  // const availability =
+  const newFood = new Food({name, cuisine, description, availability,imgPath, imgName, _owner})
   newFood.save()
   .then(food => {
     res.redirect('/foods')
@@ -38,20 +40,21 @@ router.post('/profile/create',ensureAuthenticated, uploadCloud.single('photo'),(
   .catch(error => {
     console.log(error)
   })
-})
+ })
 
 // home page after login
 // ppt page 4
 // list brief information of all food after login
-<<<<<<< HEAD
-router.get('/foods', (req, res, next) => {
-         
-=======
 router.get('/foods', ensureAuthenticated,(req, res, next) => {
-
->>>>>>> f2bc59704e34bc3588de11d76cb1583b4b05823b
-  res.render('foods/afterloginindex');
+  Food.find()
+  .then((foods) => {
+    res.render('foods/afterloginindex', { foods });
+  })
+  .catch((error) => {
+    console.log(error)
+  })
 });
+  
 
 
 // ppt page 4
@@ -64,10 +67,17 @@ router.post('/foods', ensureAuthenticated,(req, res, next)=> {
 
 // detail information about one food
 // ppt page 5
-router.get('/foods/:foodId', ensureAuthenticated, (req, res, next)=> {
+router.get('/foods/:id', ensureAuthenticated, (req, res, next)=> {
   // foodId: food id
-  res.render('foods/food-detail')
-});
+  let id = req.params.id
+  Food.findById(id)
+  .then(foodFromDb=>{
+    res.render('foods/food-detail',{food:foodFromDb});
+  })
+.catch(error => {
+  next(error)
+})
+})
 
 // food order information
 // ppt page 6

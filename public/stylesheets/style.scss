@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+.foods-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.food-item {
+  width: 30%;
+  margin: 15px;
+}
+
+.food-item img {
+  width: 50%;
+}

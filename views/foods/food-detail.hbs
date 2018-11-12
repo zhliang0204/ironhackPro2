@@ -2,3 +2,13 @@
 {{!-- ppt page 5 --}}
 {{!-- after click detail in the home page(already login) --}}
 <h3>food detail information</h3>
+{{#each food}}
+<img src="{{this.imgPath}}" alt="">
+  <h4>{{this.name}}</h4>
+  <h4>{{this.cuisine}}</h4>
+  <h4>{{this.description}}</h4>
+  <h4>{{this.address1}}</h4>
+  <h4>{{this.address2}}</h4>
+  <h4>{{this.pincode}}</h4>
+  <h4>{{this.country}}</h4>
+{{/each}}

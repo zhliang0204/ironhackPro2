@@ -1,10 +1,17 @@
 {{!-- home page before login --}}
 {{!-- PPT page 1 --}}
-<h3>home page before login</h3>
-{{!-- <a href="/">Home</a> --}}
-<section>
-  {{#each pictures}}
-    <img src="{{ this.path }}" alt="{{ this.originalName }}" />
-    <h3>{{ this. imgName }}</h3>
+
+<h1>Welcome to the Foods Project</h1>
+<div class="foods-wrapper">
+  {{#each foods}}
+  <div class="food-item">
+    <img src="{{this.imgPath}}" alt="">
+      <h4>{{this.name}}"</h4>
+      <h4>{{this.cuisine}}</h4>
+      
+      {{!-- <img src="{{}}" --}}
+  </div>
+  {{else}}
+    <p>There are no foods yet! :(</p>
   {{/each}}
-</section>
+</div>
