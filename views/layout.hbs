@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
@@ -13,11 +14,14 @@
   {{!-- reference w5d1-passport-role --}}
   <nav>
     <a href="/">Home</a>
+    {{#unless isConnected}}
     <a href="/auth/login">Login</a>
     <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
+    {{/unless}}
+
     {{#if isConnected}}
-    <a href="/foods">Profile</a>
+    <a href="/auth/logout">Logout</a>
+    <a href="/profile">Profile</a>
     <a href="/profile/create">Upload</a>
     {{/if}}
 
