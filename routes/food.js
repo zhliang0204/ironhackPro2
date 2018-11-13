@@ -34,19 +34,26 @@ router.post('/profile/create',ensureAuthenticated, uploadCloud.single('photo'),(
   const newFood = new Food({name, cuisine, description, availability,imgPath, imgName, _owner})
   newFood.save()
   .then(food => {
-    res.redirect('/foods')
+    res.redirect('/')
   })
   .catch(error => {
     console.log(error)
   })
  })
 
+ router.get('/error',ensureAuthenticated, (req,res,next)=> {
+
+  res.render('auth/login', {alert:"Please Login"});
+
+})
+
+
+
 // detail information about one food
 // ppt page 5
 router.get('/foods/:foodId', ensureAuthenticated, (req, res, next)=> {
 
   // foodId: food id
-
   let id = req.params.foodId
   Food.findById(id)
   .then(foodFromDb=>{
@@ -85,7 +92,7 @@ router.post('/foods/order/:foodId', ensureAuthenticated,(req, res, next) => {
     Food.findByIdAndUpdate(message._foodId, {
       status: 0
     }).then(food => {
-      res.redirect('/profile')
+      res.redirect('/')
     })
   })  
 });
@@ -102,8 +109,6 @@ router.get('/profile', ensureAuthenticated, (req, res, next) => {
 });
 
 
-// watch order message 
-// ppt page 8
 router.get('/profile/message/:foodId', ensureAuthenticated, (req, res, next) => {
   let foodId = req.params.foodId;
   Food.findById(foodId).then(food => {

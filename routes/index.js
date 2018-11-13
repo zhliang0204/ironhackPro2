@@ -10,7 +10,9 @@ const Food = require('../models/Food')
 router.get('/', (req, res, next) => {
   Food.find({status: 1})
   .then((foods) => {
+    console.log("foods", foods)
    let isConnected = res.locals.isConnected ;
+    // console.log("DEBUGE isConnected: ", res.locals.isConnected)
     res.render('index', { foods, isConnected});
   })
   .catch((error) => {

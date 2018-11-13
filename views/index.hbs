@@ -24,6 +24,10 @@
     <img src="{{this.imgPath}}" alt="">
       <h4>{{this.name}}</h4>
       <h4>{{this.cuisine}}</h4>
+      {{!-- <a href="/error">For More Information</a> --}}
+      {{#unless ../isConnected}}
+      <a href="/error">For More Information</a>
+      {{/unless}}
       {{#if ../isConnected}}
       <a href="/foods/{{this._id}}">Details</a>
       <a href="/foods/order/{{this._id}}">I want</a>
