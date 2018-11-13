@@ -2,3 +2,33 @@
 {{!-- ppt page 6 --}}
 {{!-- after click i want in the home page(already login) --}}
 <h3>food order information</h3>
+
+<h2>Order food</h2>
+<form action="/foods/order/{{food.id}}" method="post">
+  <label>Title</label>
+  <input type="text" name="name" value="{{food.name}}">
+  <br>
+
+  <label>Cuisine</label>
+  <input type="text" name="cuisine" value={{food.cuisine}}>
+  <br>
+
+  <label>Description</label>
+  <input type="text" name="description" value={{food.description}}>
+  <br>
+
+  <label>Availability</label>
+   <input type='text' name="availability" value='{{food.availability}}'>
+  <br>
+
+  <label>Image</label>
+   <img src="{{food.imgPath}}" alt="{{food.imgName}}">
+  <br>
+
+  <label>Message</label>
+  <input type='text' name="message" value="">
+  <br>
+
+  <br>
+  <input type="submit" value="submit">
+</form>

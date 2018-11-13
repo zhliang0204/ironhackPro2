@@ -5,20 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  {{!-- 1)mapbox --}}
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+ <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+ {{!-- 3)mapbox --}}
+ <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+ {{!-- 4)axios --}}
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
   {{!-- nav bar should different for user login or not --}}
   {{!-- use isConnected, isAdmin to check --}}
   {{!-- reference w5d1-passport-role --}}
   <nav>
+   
     <a href="/">Home</a>
+     {{#unless isConnected}}
     <a href="/auth/login">Login</a>
     <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
+    {{/unless}}
+
+    {{!-- <a href="/auth/logout">Logout</a> --}}
     {{!-- <a href="/auth/upload"></a> --}}
     {{#if isConnected}}
-    <a href="/foods">Profile</a>
+    {{!-- <a href="/foods">Home</a> --}}
+    <a href="/auth/logout">Logout</a>
+    <a href="/profile">Profile</a>
     <a href="/profile/create">Upload</a>
     {{/if}}
 

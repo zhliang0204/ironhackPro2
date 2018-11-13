@@ -1,3 +1,32 @@
 {{!-- edit food information by user --}}
 {{!-- ppt page 10 --}}
 <h3>food information edit</h3>
+
+<h2>Edit food</h2>
+<form action="/profile/edit/{{food.id}}" method="post" enctype="multipart/form-data">
+  <label>Title</label>
+  <input type="text" name="name" value="{{food.name}}">
+  <br>
+
+  <label>Cuisine</label>
+  <input type="text" name="cuisine" value={{food.cuisine}}>
+  <br>
+
+  <label>Description</label>
+  <input type="text" name="description" value={{food.description}}>
+  <br>
+
+  <label>Availability</label>
+   <input type='date' name="availability" value={{food.availability}}>
+  <br>
+
+  <label>Image</label>
+   <img src="{{food.imgPath}}" alt="{{food.imgName}}">
+  <br>
+
+  <label>Poste new image</label>
+  <input type="file" name="photo">
+
+  <br>
+  <input type="submit" value="Edit">
+</form>

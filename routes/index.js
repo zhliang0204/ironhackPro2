@@ -9,8 +9,12 @@ const Food = require('../models/Food')
 // reference: week5 day5 express| file upload cdn
 router.get('/', (req, res, next) => {
   Food.find()
+  // .populate('_owner')
   .then((foods) => {
-    res.render('index', { foods });
+    console.log("foods", foods)
+   let isConnected = res.locals.isConnected ;
+    // console.log("DEBUGE isConnected: ", res.locals.isConnected)
+    res.render('index', { foods, isConnected});
   })
   .catch((error) => {
     console.log(error)

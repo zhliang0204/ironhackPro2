@@ -3,7 +3,7 @@
 {{!-- after click detail in the home page(already login) --}}
 <h3>food detail information</h3>
 {{!-- {{#each food}} --}}
-<img src="{{this.imgPath}}" alt="">
+<img src="{{food.imgPath}}" alt="">
   <h4>{{food.name}}</h4>
   <h4>{{food.cuisine}}</h4>
   <h4>{{food.description}}</h4>
@@ -11,4 +11,24 @@
   <h4>{{user.address2}}</h4>
   <h4>{{user.pincode}}</h4>
   <h4>{{user.country}}</h4>
+  {{!-- 2) --}}
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+//var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js'); 
+mapboxgl.accessToken = 'pk.eyJ1IjoiZWNiaW51MTk5MiIsImEiOiJjam9ldnJ1b2czMGNrM3Byc3phcmV0b2FwIn0.qGy7Y8V4YfU5V6bTNA_ezw';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v10',
+center: [13,52],
+zoom: 3
+});
+map.addControl(new mapboxgl.NavigationControl())
+
+//add markers
+let marker1 = new mapboxgl.Marker({
+  color: '#222222' // Black
+})
+  .setLngLat([13.3711224, 52.5063688])
+  .addTo(map)
+</script>
 {{!-- {{/each}} --}}

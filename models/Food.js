@@ -6,7 +6,9 @@ const foodSchema = new Schema({
    description: String,
    imgName: String,
    imgPath: String,
-   availability:{type:Date},
+  //  availability:{type:Date},
+   availability:{type:String},
+
    _owner: { type: Schema.Types.ObjectId, ref: 'User' },
    status:{type:Number,enum:[0,1],default:1}
 
