@@ -17,7 +17,7 @@ a {
   width: 50%; }
 
 .distance-container {
-  position: absolute;
+  width: 400px;
   top: 10px;
   left: 10px;
   z-index: 1; }
