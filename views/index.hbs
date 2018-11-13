@@ -6,15 +6,23 @@
 <h1>Welcome to the Foods Project</h1>
 
   {{#if isConnected}}
-    <input type="text">
-    <button>search bar</button>
+    <form action="/" method="post">
+      <select name="kind">
+        <option value="name">Name</option>
+        <option value="cuisine">Cuisine</option>
+        <option value="distance">distance</option>
+      </select>
+      <input type="text" name="content">
+      <input type="submit" value="search">
+    </form>
+
   {{/if}}
    <br>
   <div class="foods-wrapper">
   {{#each foods}}
   <div class="food-item">
     <img src="{{this.imgPath}}" alt="">
-      <h4>{{this.name}}"</h4>
+      <h4>{{this.name}}</h4>
       <h4>{{this.cuisine}}</h4>
       {{#if ../isConnected}}
       <a href="/foods/{{this._id}}">Details</a>

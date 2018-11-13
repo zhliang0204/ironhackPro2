@@ -41,29 +41,6 @@ router.post('/profile/create',ensureAuthenticated, uploadCloud.single('photo'),(
   })
  })
 
-// home page after login
-// ppt page 4
-// list brief information of all food after login
-router.get('/foods', ensureAuthenticated,(req, res, next) => {
-  Food.find()
-  .then((foods) => {
-    res.render('foods/afterloginindex', { foods });
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-});
-  
-
-
-// ppt page 4
-router.post('/foods', ensureAuthenticated,(req, res, next)=> {
-  // functionality about filter
-  // question: filter  back-end or front-end??
-  res.render('foods/afterloginindex')
-});
-
-
 // detail information about one food
 // ppt page 5
 router.get('/foods/:foodId', ensureAuthenticated, (req, res, next)=> {
@@ -78,19 +55,7 @@ router.get('/foods/:foodId', ensureAuthenticated, (req, res, next)=> {
       // console.log(user);
       res.render('foods/food-detail',{food:foodFromDb, user:user});
     })
-   
-// router.get('/foods/:id', ensureAuthenticated, (req, res, next)=> {
-//   // foodId: food id
-//   let id = req.params.id
-//   Food.findById(id)
-//   .then(foodFromDb=>{
-//     res.render('foods/food-detail',{food:foodFromDb});
-//   })
-// .catch(error => {
-//   next(error)
-// })
-//   res.render('foods/food-detail')
-});
+  });
 })
 
 // food order information
@@ -100,8 +65,6 @@ router.get('/foods/order/:foodId', ensureAuthenticated, (req, res, next)=> {
   Food.findById(foodId).then(food=> {
     res.render('foods/food-order',{food})
   })
-
-  
 });
 
 // submit the order information
@@ -122,10 +85,9 @@ router.post('/foods/order/:foodId', ensureAuthenticated,(req, res, next) => {
     Food.findByIdAndUpdate(message._foodId, {
       status: 0
     }).then(food => {
-      res.redirect('/foods')
+      res.redirect('/profile')
     })
-  })
-  
+  })  
 });
 
 // list brief information of all food provieded by one user 
@@ -148,10 +110,13 @@ router.get('/profile/message/:foodId', ensureAuthenticated, (req, res, next) => 
     // console.log(food)
     // res.render('foods/foodprofile-orderInfo',{food:food})
     Mesg.findOne({_foodId:foodId}).then(message => {
-      res.render('foods/foodprofile-orderInfo',{food:food, message:message})
+      User.findById(message._sender).then(user => {
+        console.log(user)
+        res.render('foods/foodprofile-orderInfo',{food:food, message:message, user:user})
+      })
+      // res.render('foods/foodprofile-orderInfo',{food:food, message:message})
     })
   })
-  
 })
 
 
@@ -191,6 +156,16 @@ router.get("/profile/delete/:foodId", ensureAuthenticated, (req, res, next) => {
   let foodId = req.params.foodId;
   Food.findByIdAndRemove(foodId).then(food => {
     res.redirect('/profile')
+  })
+})
+
+
+// list all orders of one users
+router.get("/profile/orders", ensureAuthenticated, (req, res, next) => {
+  let userId = req.user.id;
+  Mesg.find({_sender:userId}).populate("_foodId").then(messages => {
+    // console.log(messages._foodId)
+    res.render('foods/profile-orders',{messages, messages})
   })
 })
 
