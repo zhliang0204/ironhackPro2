@@ -5,43 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  {{!-- 1)mapbox --}}
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
  <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
- {{!-- 3)mapbox --}}
  <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
- {{!-- 4)axios --}}
  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+ <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
 </head>
 <body>
-  {{!-- nav bar should different for user login or not --}}
-  {{!-- use isConnected, isAdmin to check --}}
-  {{!-- reference w5d1-passport-role --}}
-  <nav>
-   
-    <a href="/">Home</a>
+
+  <nav class="topnav">
+      <a href="/">Home</a>
      {{#unless isConnected}}
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
+      <a href="/auth/login">Login</a>
+      <a href="/auth/signup">Signup</a>
     {{/unless}}
 
-    {{!-- <a href="/auth/logout">Logout</a> --}}
-    {{!-- <a href="/auth/upload"></a> --}}
     {{#if isConnected}}
-    {{!-- <a href="/foods">Home</a> --}}
-    <a href="/auth/logout">Logout</a>
-    <a href="/profile">Profile</a>
-    <a href="/profile/create">Upload</a>
-    <a href="/profile/orders">Orders</a>
-
+       <a href="/auth/logout">Logout</a>
+      <a href="/profile">Profile</a>
+      <a href="/profile/create">Upload</a>
+      <a href="/profile/orders">Orders</a>
     {{/if}}
 
   </nav>
 
   {{{body}}}
-
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="/javascripts/script.js"></script>
 </body>
 </html>
