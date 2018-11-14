@@ -3,59 +3,70 @@ var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v10',
 center: [13,52],
-zoom: 3
+zoom: 8
 });
+
 map.addControl(new mapboxgl.NavigationControl())
 
-//add markers
-// let marker1 = new mapboxgl.Marker({
-//   color: '#222222' // Black
-// })
-//   .setLngLat([13.3711224, 52.5063688])
-//   .addTo(map)
 
-  map.addControl(new mapboxgl.GeolocateControl({
-    positionOptions: {
-        enableHighAccuracy: true
-    },
-    trackUserLocation: true
-   }));
-   
-   
-   var baseUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
-   var curAddress = encodeURI("Krausenstrasse 25,10117 Berlin");
-   var key = 'pk.eyJ1IjoiZWNiaW51MTk5MiIsImEiOiJjam9ldnJ1b2czMGNrM3Byc3phcmV0b2FwIn0.qGy7Y8V4YfU5V6bTNA_ezw';
-   console.log(baseUrl + curAddress + ".json?&access_token=" + key);
-   console.log( curAddress );
-   
-   
-   
-   axios.get(baseUrl + curAddress + ".json?&access_token=" + key).then(response=>{
-    console.log(response.data.features[0].geometry.coordinates);
-    var latlng = response.data.features[0].geometry.coordinates;
-    let marker2 = new mapboxgl.Marker({
-      color: '#222222' // Black
-    })
-      .setLngLat(latlng)
-      .addTo(map)
-   
-   })
+// Add geolocate control to the map.
+map.addControl(new mapboxgl.GeolocateControl({
+  positionOptions: {
+      enableHighAccuracy: true
+  },
+  trackUserLocation: true
+}));
+
+
+var baseUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
+var address1 = document.getElementById("address1").innerText;
+var address2 = document.getElementById("address2").innerText;
+var country = document.getElementById('country').innerText;
+
+var curAddress = encodeURI(address1 + "," + address2+ "," + country );
+var key = 'pk.eyJ1IjoiZWNiaW51MTk5MiIsImEiOiJjam9ldnJ1b2czMGNrM3Byc3phcmV0b2FwIn0.qGy7Y8V4YfU5V6bTNA_ezw';
+// console.log(baseUrl + curAddress + ".json?&access_token=" + key);
+// console.log( curAddress );
+
+
+
+axios.get(baseUrl + curAddress + ".json?&access_token=" + key).then(response=>{
+  // console.log(response.data.features[0].geometry.coordinates);
+  var latlng = response.data.features[0].geometry.coordinates;
+  let marker2 = new mapboxgl.Marker({
+    color: '#222222' // Black
+  })
+    .setLngLat(latlng)
+    .addTo(map)
+
+})
+
+
+
+axios.get(baseUrl + curAddress + ".json?&access_token=" + key).then(response=>{
+  var latlng = response.data.features[0].geometry.coordinates;
+  let marker2 = new mapboxgl.Marker({
+    color: '#222222' // Black
+  })
+  .setLngLat(latlng)
+  .addTo(map)
+})
   
-   //distance
-   var distanceContainer = document.getElementById('distance');
+//distance
+var distanceContainer = document.getElementById('distance');
 
 // GeoJSON object to hold our measurement features
 var geojson = {
-    "type": "FeatureCollection",
-    "features": []
+  "type": "FeatureCollection",
+  "features": []
 };
 
 // Used to draw a line between points
 var linestring = {
-    "type": "Feature",
-    "geometry": {
-        "type": "LineString",
-        "coordinates": []
+  "type": "Feature",
+  "geometry": {
+    'type': "LineString",
+    "coordinates": []
     }
 };
 
@@ -137,13 +148,11 @@ map.on('load', function() {
             value.textContent = 'Total distance: ' + turf.lineDistance(linestring).toLocaleString() + 'km';
             distanceContainer.appendChild(value);
         }
-
         map.getSource('geojson').setData(geojson);
     });
 });
 
 map.on('mousemove', function (e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['measure-points'] });
-    // UI indicator for clicking/hovering a point on the map
-    map.getCanvas().style.cursor = (features.length) ? 'pointer' : 'crosshair';
+  var features = map.queryRenderedFeatures(e.point, { layers: ['measure-points'] });
+  map.getCanvas().style.cursor = (features.length) ? 'pointer' : 'crosshair';
 });
