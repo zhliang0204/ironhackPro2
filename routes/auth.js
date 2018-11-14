@@ -43,6 +43,10 @@ router.post("/signup", (req, res, next) => {
     return;
   }
 
+  if(address1 === "" || country === "" || region === ""){
+    res.render("auth/signup", { message: "Indicate address and country" })
+  }
+
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
       res.render("auth/signup", { message: "The username already exists" });
