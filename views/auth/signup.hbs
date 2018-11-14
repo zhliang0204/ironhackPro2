@@ -32,9 +32,14 @@
   <input id="pincode" type="number" name="pincode" placeholder="Postal Code">
   <br><br>
 
-  <label for="country">Country</label>
-  <input id="country" type="text" name="country" placeholder="Country">
-  
+  {{!-- <label for="country">Country</label>
+  <input id="country" type="text" name="country" placeholder="Country"> --}}
+    
+    <label>Country:</label> 
+    <select class="gds-cr" country-data-region-id="gds-cr-one" name="country" ></select>
+
+    <label>Region</label>
+    <select id="gds-cr-one" name="region" ></select>
   
   
   {{#if message }}

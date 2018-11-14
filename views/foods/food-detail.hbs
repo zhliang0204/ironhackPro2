@@ -2,7 +2,8 @@
 {{!-- ppt page 5 --}}
 {{!-- after click detail in the home page(already login) --}}
 <h3>food detail information</h3>
-<img src="{{food.imgPath}}" alt="">
+<div class="text-center">
+<img src="{{food.imgPath}}" class="rounded" style=>
   <h4>{{food.name}}</h4>
   <h4>{{food.cuisine}}</h4>
   <h4>{{food.description}}</h4>
@@ -10,7 +11,8 @@
   <h4 id="address2">{{user.address2}}</h4>
   <h4>{{user.pincode}}</h4>
   <h4 id="country">{{user.country}}</h4>
-  
+</div>
+
 <div id='map' style='width: 400px; height: 300px;'></div>
 <div id='distance' class='distance-container'></div>
 

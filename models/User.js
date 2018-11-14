@@ -9,6 +9,7 @@ const userSchema = new Schema({
   address2:String,
   pincode: Number,
   country: String,
+  region: String,
   role: {
       type: String,
       enum : ['USER', 'ADMIN'],
