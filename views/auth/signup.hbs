@@ -1,59 +1,73 @@
 {{!-- signup page --}}
 {{!-- ppt page 2 --}}
 {{!-- option: consider signup with slack, google account --}}
+<section class="login-block">
+<div class="container">
+	<div class="row">
+    	<div class="col-md-12 login-sec">
+<h2 class="text-center">Signup</h2>
 
-<h2>Signup</h2>
 
 <form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <div  class="form-group row">
+  <label class="col-sm-4 col-form-label" for="username" >Username</label>
+  <div class="col-sm-8"><input id="username" type="text" name="username" placeholder="JonSnow"></div>
+  </div>
+ 
+  <div class="form-group row">
+  <label  class="col-sm-4 col-form-label" for="password">Password</label>
+  <div class="col-sm-8"><input id="password" type="password" name="password" placeholder="Your password"></div>
+  </div>
 
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <div class="form-group row">
+  <label  class="col-sm-4 col-form-label" for="email">Email</label>
+   <div class="col-sm-8"><input id="email" type="email" name="email" placeholder="Your email"></div>
+  </div>
   
-  <br><br>
-
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="Your email">
+  <div class="form-group row">
+  <label  class="col-sm-4 col-form-label" for="address">Address Line1</label>
+  <div class="col-sm-8"><input id="address" type="text" name="address1" placeholder="Address Line 1"></div>
+  </div>
+   
+  <div class="form-group row">
+    <label  class="col-sm-4 col-form-label" for="address">Address Line1</label>
+  <div class="col-sm-8"><input id="address1" type="text" name="address2" placeholder="Address Line 2"></div>
+  </div>
   
-  <br><br>
 
-  <label for="address">Address
-  <input id="address" type="text" name="address1" placeholder="Address Line 1">
-  <br><br>
-  
-  <input id="address1" type="text" name="address2" placeholder="Address Line 2">
-  <br><br>
-  </label>
-
-  <label for="pincode">Zip/Postal Code </label>
+  <div class="form-group row">
+  <label class="col-sm-4 col-form-label" for="pincode">Zip/Postal Code </label>
   <input id="pincode" type="number" name="pincode" placeholder="Postal Code">
-  <br><br>
+  </div>
 
   {{!-- <label for="country">Country</label>
   <input id="country" type="text" name="country" placeholder="Country"> --}}
-    
-    <label>Country:</label> 
+    <div class="form-group row">
+    <label  class="col-sm-4 col-form-label">Country:</label> 
     <select class="gds-cr" country-data-region-id="gds-cr-one" name="country" ></select>
-
-    <label>Region</label>
+    </div>
+    <div class="form-group row">
+    <label class="col-sm-4 col-form-label">Region</label>
     <select id="gds-cr-one" name="region" ></select>
-  
+    </div>
   
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br><br>
-
-  <button>Create account</button>
-
+   <div class="form-group row">
+  <div class="col-sm-4" "offset-sm-4">
+  <button class="btn  btn-login text-center" style="background-color:  #5E4485; color:white">Create account</button>
+   </div>
+   </div>
   <p class="account-message">
     Do you already have an account?
     <a href="/auth/login">Login</a>
   </p>
 </form>
-
+</div>
+</div>
+</div>
+</section>
 
