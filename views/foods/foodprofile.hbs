@@ -6,10 +6,10 @@
   {{#each foods}}
   <div class="food-item">
     <img src="{{this.imgPath}}" alt="{{this.imgName}}">
-    <h4>{{this.name}}"</h4>
+    <h4>{{this.name}}</h4>
     <h4>{{this.cuisine}}</h4>
     <h4>{{this.availability}}</h4>
-    <h4>{{this._owner}}</h4>
+    {{!-- <h4>{{this._owner}}</h4> --}}
     {{#if this.status}}
     <h4>No Message</h4>
     {{/if}}
