@@ -17,13 +17,19 @@ map.addControl(new mapboxgl.GeolocateControl({
   trackUserLocation: true
 }));
 
+// let marker1 = new mapboxgl.Marker({
+//     color: '#222222' // Black
+//   })
+//     .setLngLat([9.971028, 51.515127])
+//     .addTo(map)
+
 
 var baseUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
 var address1 = document.getElementById("address1").innerText;
-var address2 = document.getElementById("address2").innerText;
+var region = document.getElementById("region").innerText;
 var country = document.getElementById('country').innerText;
 
-var curAddress = encodeURI(address1 + "," + address2+ "," + country );
+var curAddress = encodeURI(address1 + "," + region + ","+ country );
 var key = 'pk.eyJ1IjoiZWNiaW51MTk5MiIsImEiOiJjam9ldnJ1b2czMGNrM3Byc3phcmV0b2FwIn0.qGy7Y8V4YfU5V6bTNA_ezw';
 // console.log(baseUrl + curAddress + ".json?&access_token=" + key);
 // console.log( curAddress );
@@ -31,7 +37,7 @@ var key = 'pk.eyJ1IjoiZWNiaW51MTk5MiIsImEiOiJjam9ldnJ1b2czMGNrM3Byc3phcmV0b2FwIn
 
 
 axios.get(baseUrl + curAddress + ".json?&access_token=" + key).then(response=>{
-  // console.log(response.data.features[0].geometry.coordinates);
+  console.log(response.data.features[0].geometry.coordinates);
   var latlng = response.data.features[0].geometry.coordinates;
   let marker2 = new mapboxgl.Marker({
     color: '#222222' // Black

@@ -64,6 +64,7 @@ router.get('/foods/:foodId', ensureAuthenticated, (req, res, next)=> {
 // ppt page 6
 router.get('/foods/order/:foodId', ensureAuthenticated, (req, res, next)=> {
   let foodId = req.params.foodId;
+  
   Food.findById(foodId).then(food=> {
     res.render('foods/food-order',{food})
   })
@@ -75,6 +76,12 @@ router.get('/foods/order/:foodId', ensureAuthenticated, (req, res, next)=> {
 router.post('/foods/order/:foodId', ensureAuthenticated,(req, res, next) => {
   let foodId = req.params.foodId;
   const msg = req.body.message;
+  if (msg === "") {
+    Food.findById(foodId).then(food=> {
+      res.render('foods/food-order',{food:food, message:"Please leave message first"})
+    })
+    return;
+  }
   Mesg.create({
     content:msg,
     _food: foodId,

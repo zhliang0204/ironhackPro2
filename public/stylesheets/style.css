@@ -6316,6 +6316,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url("https://images.pexels.com/photos/349610/pexels-photo-349610.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
   background-image: no-repeat;
+  background-attachment: fixed;
   height: 100%;
   background-position: center;
   /* Center the image */
@@ -6372,7 +6373,7 @@ h4 {
 .distance-container {
   width: 400px;
   top: 10px;
-  left: 10px;
+  left: 30px;
   z-index: 1; }
 
 .distance-container > * {
@@ -6498,7 +6499,31 @@ h4 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
     align-content: stretch; } }
+
+#map {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px; }
+
+.container {
+  padding-bottom: 5vh; }
+
+.mybutton {
+  padding-top: 1vh;
+  text-align: right;
+  width: 95%; }
+
+.message {
+  width: 100%;
+  padding: 0 5%;
+  text-align: center;
+  margin: 0 auto; }
+
+.message-form {
+  width: 100%;
+  height: 100%; }
 
 /*# sourceMappingURL=style.css.map */
