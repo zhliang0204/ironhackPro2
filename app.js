@@ -76,6 +76,9 @@ require('./passport')(app);
 
 // Use middleware to check user connected
 app.use((req, res, next) => {
+  // all my views has the user information
+  // res.locals.user = req.user;
+  
   res.locals.isConnected = !!req.user;
 
   res.locals.isAdmin = req.user && req.user.role === "Admin";
