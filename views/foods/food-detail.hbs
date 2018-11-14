@@ -3,14 +3,17 @@
 {{!-- after click detail in the home page(already login) --}}
 <h3>food detail information</h3>
 {{!-- {{#each food}} --}}
+<div class="text-center"></div>
 <img src="{{food.imgPath}}" alt="">
-  <h4>{{food.name}}</h4>
+  <h4 class="text-info">{{food.name}}</h4>
   <h4>{{food.cuisine}}</h4>
   <h4>{{food.description}}</h4>
   <h4>{{user.address1}}</h4>
   <h4>{{user.address2}}</h4>
   <h4>{{user.pincode}}</h4>
   <h4>{{user.country}}</h4>
+  </div>
+
   {{!-- 2) --}}
 <div id='map' style='width: 400px; height: 300px;'></div>
 <div id='distance' class='distance-container'></div>

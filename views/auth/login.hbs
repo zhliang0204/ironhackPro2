@@ -1,27 +1,43 @@
 {{!-- login page --}}
 {{!-- ppt page 3 --}}
-
-<h2>Login</h2>
-
-<form action="/auth/login" method="POST" id="form-container">
+<section class="login-block">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 login-sec">
+		<h2 class="text-center">Login Now</h2>
+<form class="login-form" action="/auth/login" method="POST" id="form-container">
+<div class="form-group">
   <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <input id="username" type="text"   class="form-control" name="username" placeholder="Your Username">
+</div>
+  
 
-  <br><br>
-
+<div class="form-group">
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+  <input id="password" type="password"   class="form-control" name="password" placeholder="Your password">
+  </div>
+
+ 
+
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input">
+      <small>Remember Me</small>
+    </label>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br><br>
 
-  <button>Login</button>
+  <button class="btn btn-login float-right">Login</button>
 
   <p class="account-message">
     Don't have an account yet?
     <a href="/auth/signup">Signup</a>
   </p>
+  </div>
+  </div>
+  </div>
 </form>
+</section>

@@ -16,37 +16,63 @@
  {{!-- 4)axios --}}
  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+ {{!-- bootstrap --}}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
   {{!-- nav bar should different for user login or not --}}
   {{!-- use isConnected, isAdmin to check --}}
   {{!-- reference w5d1-passport-role --}}
-  <nav>
-   
-    <a href="/">Home</a>
-     {{#unless isConnected}}
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    {{/unless}}
+  
+   <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #5E4485;">
+        <a class="navbar-brand  text-white" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link  text-white btn-outline-secondary " href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+               {{#unless isConnected}}
+            <li class="nav-item active">
+              <a class="nav-link   text-white btn-outline-secondary " href="/auth/login">Login</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link  text-white btn-outline-secondary " href="/auth/signup">Signup</a>
+            </li>
+            {{/unless}}
+            {{#if isConnected}}
+            <li class="nav-item active">
+            <a class="nav-link  text-white btn-outline-secondary " href="/auth/logout">Logout</a>
+            </li>
+            <li class="nav-item active">
+            <a class="nav-link  text-white btn-outline-secondary " href="/profile">Profile</a>
+            </li>
+            <li class="nav-item active">
+            <a class="nav-link  text-white btn-outline-secondary " href="/profile/create">Upload</a>
+            </li>
+            <li class="nav-item active">
+            <a class="nav-link  text-white btn-outline-secondary " href="/profile/orders">Orders</a>
+            </li>
+          
+            {{/if}}
 
-    {{!-- <a href="/auth/logout">Logout</a> --}}
-    {{!-- <a href="/auth/upload"></a> --}}
-    {{#if isConnected}}
-    {{!-- <a href="/foods">Home</a> --}}
-    <a href="/auth/logout">Logout</a>
-    <a href="/profile">Profile</a>
-    <a href="/profile/create">Upload</a>
-    <a href="/profile/orders">Orders</a>
-
-    {{/if}}
-
-  </nav>
+          </ul>
+        </div>
+    </nav>  
+  
 
   {{{body}}}
-  {{!-- distance --}}
- <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
-  <script src="/javascripts/main.js"></script>
-  
-  <script src="/javascripts/script.js"></script>
+{{!-- #5E4485 --}}
+{{!-- #596a74 --}}
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+<script src="/javascripts/main.js"></script>
+<script src="/javascripts/script.js"></script>
 </body>
 </html>
