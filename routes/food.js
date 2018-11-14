@@ -101,6 +101,7 @@ router.get('/profile/message/:foodId', ensureAuthenticated, (req, res, next) => 
   let foodId = req.params.foodId;
   Food.findById(foodId).then(food => {
     Mesg.findOne({_food:foodId}).then(message => {
+      console.log(message);
       User.findById(message._sender).then(user => {
         res.render('foods/foodprofile-orderInfo',{food:food, message:message, user:user})
       })
