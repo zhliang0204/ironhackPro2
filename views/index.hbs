@@ -1,10 +1,5 @@
 {{!-- home page before login --}}
 {{!-- PPT page 1 --}}
-<h3>home page before/after login</h3>
-
-
-<h1>Welcome to the Foods Project</h1>
-
   {{#if isConnected}}
     <form action="/" method="post">
       <select name="kind">
@@ -17,25 +12,29 @@
     </form>
 
   {{/if}}
-   <br>
-  <div class="foods-wrapper">
+   <br><br>
+  {{!-- <div class="foods-wrapper"> --}}
   {{#each foods}}
-  <div class="food-item">
-    <img src="{{this.imgPath}}" alt="">
+  {{!-- <div class="food-item"> --}}
+      <div class="float-lg-left "> 
+      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" alt="" style="height: 400px; width:400px;">
       <h4>{{this.name}}</h4>
       <h4>{{this.cuisine}}</h4>
-      {{!-- <a href="/error">For More Information</a> --}}
+      {{#if isConnected}} 
+      <a href="/error" class="text-center">More</a>
+       {{/if}}  
       {{#unless ../isConnected}}
-      <a href="/error">For More Information</a>
-      {{/unless}}
+      <a href="/error" class="text-center">More</a>
+      {{/unless}} 
       {{#if ../isConnected}}
       <a href="/foods/{{this._id}}">Details</a>
       <a href="/foods/order/{{this._id}}">I want</a>
       {{/if}}
-      
+       {{!-- </div> --}}
       {{!-- <img src="{{}}" --}}
-  </div>
+  </div> 
   {{!-- {{else}} --}}
     {{!-- <p>There are no foods yet! :(</p> --}}
+   
   {{/each}}
-</div>
+{{!-- </div> --}}

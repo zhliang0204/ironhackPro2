@@ -1,5 +1,9 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+
+
 body {
-  padding: 50px;
+  // padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -7,17 +11,37 @@ a {
   color: #00B7FF;
 }
 
-.foods-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-.food-item {
-  width: 30%;
-  margin: 15px;
+body {
+  background-image: url("https://images.pexels.com/photos/349610/pexels-photo-349610.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  // background-image: linear-gradient(red, yellow);
+  background-image: no-repeat;
+  // background-color: #cccccc;
+  // height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  // width: 100%;
+  
 }
 
-.food-item img {
-  width: 50%;
+
+// .foods-wrapper {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+// .food-item {
+//   width: 30%;
+//   margin: 15px;
+// }
+
+// .food-item img {
+//   width: 50%;
+// }
+
+h4{
+  font-style: italic;
+  font-size:14px;
+  text-align: center;
 }
 
 .distance-container {
@@ -37,3 +61,18 @@ a {
   padding: 5px 10px;
   border-radius: 3px;
 }
+
+.login-block{
+
+float:left;
+width:100%;
+padding : 50px 0;
+}
+.container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
+.login-sec{padding: 50px 30px; position:relative;}
+.login-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
+// .login-sec .copy-text i{color:#FEB58A;}
+// .login-sec .copy-text a{color:#5E4485;}
+.login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color:#5E4485;}
+.login-sec h2:after{content:" "; width:100px; height:5px; background:#5E4485; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
+.btn-login{background: #DE6262; color:#fff; font-weight:600;}
