@@ -22,6 +22,10 @@ body {
   
 }
 
+// .test{
+//   margin-left: 45%
+// }
+
 
 // .foods-wrapper {
 //   display: flex;
@@ -36,29 +40,31 @@ body {
 //   width: 50%;
 // }
 
-h4{
-  font-style: italic;
-  font-size:14px;
-  text-align: center;
-}
+// h4{
+//   font-style: italic;
+//   font-size:12px;
+//   text-align: center;
+// }
+// .homepage a{
+//   text-align: center;
+// }
+// .distance-container {
+//   width:400px;
+//   top: 10px;
+//   left: 10px;
+//   z-index: 1;
+// }
 
-.distance-container {
-  width:400px;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
-}
-
-.distance-container > * {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 11px;
-  line-height: 18px;
-  display: block;
-  margin: 0;
-  padding: 5px 10px;
-  border-radius: 3px;
-}
+// .distance-container > * {
+//   background-color: rgba(0, 0, 0, 0.5);
+//   color: #fff;
+//   font-size: 11px;
+//   line-height: 18px;
+//   display: block;
+//   margin: 0;
+//   padding: 5px 10px;
+//   border-radius: 3px;
+// }
 
 .login-block{
 
@@ -66,7 +72,8 @@ float:left;
 width:100%;
 padding : 50px 0;
 }
-.container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
+// 
+.container{ background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
 .login-sec{padding: 50px 30px; position:relative;}
 .login-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
 // .login-sec .copy-text i{color:#FEB58A;}
@@ -101,10 +108,10 @@ h4 {
   width: 100%;
   padding: 50px 0; }
 
-.container {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); }
+// .container {
+//   background: #fff;
+//   border-radius: 10px;
+//   box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); }
 
 .login-sec {
   padding: 50px 30px;
@@ -138,3 +145,7 @@ h4 {
   background: #DE6262;
   color: #fff;
   font-weight: 600; }
+
+  .padding{
+    padding: 10px 10px;
+  }

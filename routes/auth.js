@@ -32,11 +32,19 @@ router.post("/signup", (req, res, next) => {
   const address2 = req.body.address2;
   const pincode = req.body.pincode;
   const country = req.body.country;
-  //console.log(pincode);
+  const region = req.body.region;
+
+  console.log("country: ", country);
+  console.log("region: ", region);
+
 
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
+  }
+
+  if(address1 === "" || country === "" || region === ""){
+    res.render("auth/signup", { message: "Indicate address and country" })
   }
 
   User.findOne({ username }, "username", (err, user) => {
@@ -55,7 +63,8 @@ router.post("/signup", (req, res, next) => {
       address1,
       address2,
       pincode,
-      country
+      country,
+      region,
     });
 
     newUser.save()

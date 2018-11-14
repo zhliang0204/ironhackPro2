@@ -6327,9 +6327,10 @@ body {
   /* Do not repeat the image */
   background-size: cover; }
 
-h4 {
-  font-style: italic;
-  font-size: 14px;
+.test {
+  text-align: center; }
+
+.homepage a {
   text-align: center; }
 
 .distance-container {
@@ -6454,5 +6455,8 @@ h4 {
   background: #DE6262;
   color: #fff;
   font-weight: 600; }
+
+.padding {
+  padding: 10px 10px; }
 
 /*# sourceMappingURL=style.css.map */
