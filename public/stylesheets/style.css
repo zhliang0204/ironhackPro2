@@ -6315,59 +6315,27 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url("https://images.pexels.com/photos/349610/pexels-photo-349610.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-  background-image: no-repeat;
   height: 100%;
+  background-attachment: fixed;
   background-position: center;
-  /* Center the image */
   background-repeat: no-repeat;
-  /* Do not repeat the image */
-  background-size: cover; }
+  background-size: cover;
+  margin: 0%; }
 
-a {
-  color: #00B7FF; }
+.details a {
+  background-color: #5E4485;
+  color: white;
+  padding: 14px 25px;
+  display: inline-block;
+  text-decoration: none; }
+
+.details a:hover, a:active {
+  background-color: #592e83; }
 
 h4 {
   font-style: italic;
   font-size: 1.4rem;
   text-align: center; }
-
-.container {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); }
-
-.login-sec {
-  padding: 50px 30px;
-  position: relative; }
-
-.login-sec .copy-text {
-  position: absolute;
-  width: 80%;
-  bottom: 20px;
-  font-size: 13px;
-  text-align: center; }
-
-.login-sec h2 {
-  margin-bottom: 30px;
-  font-weight: 800;
-  font-size: 30px;
-  color: #5E4485; }
-
-.login-sec h2:after {
-  content: " ";
-  width: 100px;
-  height: 5px;
-  background: #5E4485;
-  display: block;
-  margin-top: 20px;
-  border-radius: 3px;
-  margin-left: auto;
-  margin-right: auto; }
-
-.btn-login {
-  background: #DE6262;
-  color: #fff;
-  font-weight: 600; }
 
 .distance-container {
   width: 400px;
@@ -6385,49 +6353,21 @@ h4 {
   padding: 5px 10px;
   border-radius: 3px; }
 
-.login-block {
-  float: left;
-  width: 100%;
-  padding: 50px 0; }
-
-.login-sec {
-  padding: 50px 30px;
-  position: relative; }
-
-.login-sec .copy-text {
-  position: absolute;
-  width: 80%;
-  bottom: 20px;
-  font-size: 13px;
-  text-align: center; }
-
-.login-sec h2 {
-  margin-bottom: 30px;
-  font-weight: 800;
-  font-size: 30px;
-  color: #5E4485; }
-
-.login-sec h2:after {
-  content: " ";
-  width: 100px;
-  height: 5px;
-  background: #5E4485;
-  display: block;
-  margin-top: 20px;
-  border-radius: 3px;
-  margin-left: auto;
-  margin-right: auto; }
-
-.login-block {
-  float: left;
-  width: 100%;
-  padding: 50px 0; }
-
 .container {
   background: #fff;
   border-radius: 10px;
   box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); }
 
+.btn-login {
+  background: #DE6262;
+  color: #fff;
+  font-weight: 600; }
+
+.login-block {
+  float: left;
+  width: 100%;
+  padding: 50px 0; }
+
 .login-sec {
   padding: 50px 30px;
   position: relative; }
@@ -6456,10 +6396,10 @@ h4 {
   margin-left: auto;
   margin-right: auto; }
 
-.btn-login {
-  background: #DE6262;
-  color: #fff;
-  font-weight: 600; }
+.login-block {
+  float: left;
+  width: 100%;
+  padding: 50px 0; }
 
 @media (max-width: 767.98px) {
   .container {

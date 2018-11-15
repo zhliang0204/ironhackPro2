@@ -1,6 +1,7 @@
 {{!-- home page before login --}}
 {{!-- PPT page 1 --}}
   {{#if isConnected}}
+   <div class="text-center">
     <form action="/" method="post">
       <select name="kind">
         <option value="name">Name</option>
@@ -10,28 +11,35 @@
       <input type="text" name="content">
       <input type="submit" value="search">
     </form>
-     
+    </div>
 {{/if}}
    <br><br>
   {{!-- <div class="foods-wrapper"> --}}
   {{#each foods}}
   {{!-- <div class="food-item"> --}}
+    {{!-- <div class="quote">
+      <h1>Say No to Food Wastage</h1>
+      </div> --}}
       <div class="float-lg-left padding "> 
-      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" alt="" style="height: 400px; width:400px; margin_top:30px; margin_left:50;">
+      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" alt="" style="height: 350px; width:350px; margin:100px 20px 20px 20px; ">
       <h4 class="text-center">{{this.name}}</h4>
       <h4 class="text-center">{{this.cuisine}}</h4>
       {{#if isConnected}} 
       <a href="/error">More</a>
        {{/if}}  
       {{#unless ../isConnected}}
-      <div class="text-center">
+      <div class="text-center details">
       <a href="/error">More</a>
       </div>
       {{/unless}} 
       {{#if ../isConnected}}
-      
-      <a href="/foods/{{this._id}}" class="text-center">Details</a>
-      <a href="/foods/order/{{this._id}}" class="text-center">I want</a>
+      <div class="text-center details">
+      <a href="/foods/{{this._id}}">Details</a>
+      <br><br>
+      </div>
+       <div class="text-center details">
+      <a href="/foods/order/{{this._id}}">Order</a>
+      </div>
       {{/if}}
        {{!-- </div> --}}
       {{!-- <img src="{{}}" --}}
