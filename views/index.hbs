@@ -24,8 +24,8 @@
         <i>"Say No to Food Wastage" </i>
         </aside>
   {{/unless}} --}}
-<div class="container-fluid">
-  <div class="row" style="margin-right:1vh;">
+{{!-- <div class="container-fluid">
+  <div class="row" style="margin-right:1vh;"> --}}
   {{#each foods}}
   {{!-- <div class="food-item"> --}}
     {{!-- <div class="quote">
@@ -35,7 +35,7 @@
       {{!-- <div class="float-lg-left padding "> --}}
       <div class="col-sm text-center"> 
 
-      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" style="height: 350px; width:350px; margin:100px 20px 20px 20px; ">
+      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail mx-auto d-block" style="height: 350px; width:350px; margin:100px 20px 20px 20px; ">
     
       {{!-- <h4 class="text-center">Name: &nbsp;{{this.name}}</h4> --}}
       <h4>Name: &nbsp;{{this.name}}</h4>
