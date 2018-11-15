@@ -15,7 +15,7 @@ function ensureAuthenticated(req, res, next){
   }
 }
 
-
+//test
 // create or upload new food information
 // ppt page 9
 router.get('/profile/create',ensureAuthenticated, (req,res,next)=> {
