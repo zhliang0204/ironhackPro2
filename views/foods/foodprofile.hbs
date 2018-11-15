@@ -3,39 +3,45 @@
 
 
 {{!-- <div class="foods-wrapper"> --}}
-  {{#each foods}}
-  {{!-- <div class="food-item style:"margin-top:25px"> --}}
-    
-    <div class="float-lg-left padding "> 
-    <img src="{{this.imgPath}}"  alt="{{this.imgName}}" class="img-fluid img-thumbnail" style="height: 350px; width:350px;">
-    <h4 class="text-center">{{this.name}}</h4>
-    <h4 class="text-center">{{this.cuisine}}</h4>
-    <h4>{{this.availability}}</h4>
-    {{!-- <h4>{{this._owner}}</h4> --}}
-    {{#if this.status}}
-    <h4>No Message</h4>
-    {{/if}}
+<div style="height: 100vh;">
+  <div class="container" style="margin-top:10vh; padding-top: 2vh;">
+    {{#each foods}}
+      <div class="img-con"> 
+        <div class="img-layout">
+          <img src="{{this.imgPath}}"  alt="{{this.imgName}}" style="width:100%; max-height: 300px;">
+        </div>
+        <div class="text-img">
+          <h4 class="text-center">Name: &nbsp;{{this.name}}</h4>
+          <h4 class="text-center">Cuisine: &nbsp;{{this.cuisine}}</h4>
+          <h4>availability: &nbsp;{{this.availability}}</h4>
 
-    {{#unless this.status}}
-    <div class="text-center details">
-    <a href="/profile/message/{{this._id}}">Message</a>
-    </div>
-    <br>
-    {{/unless}}
-    
-    <div class="text-center details">
-    <a href="/profile/edit/{{this._id}}">Edit</a>
-    </div> 
-    
-    <br>
-    <div class="text-center details">
-    <a href="/profile/delete/{{this._id}}">Delete</a>
-    </div>
+          {{!-- {{#if this.status}}
+            <h4>No Message</h4>
+          {{/if}} --}}
+        
+          <div class="mybuttons">
+            {{#unless this.status}}
+              <div class="text-center details">
+                <a href="/profile/message/{{this._id}}">Message</a>
+              </div>
+              <br>
+            {{/unless}}
+          
+            <div class="text-center details">
+              <a href="/profile/edit/{{this._id}}">Edit</a>
+            </div> 
+          
+            <br>
+            <div class="text-center details">
+              <a href="/profile/delete/{{this._id}}">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      
+    {{else}}
+          <p>There are no foods yet! :(</p>
+    {{/each}}
 
-  {{else}}
-    <p>There are no foods yet! :(</p>
-  {{/each}}
   </div>
 </div>

@@ -6324,15 +6324,25 @@ body {
   background-size: cover;
   margin: 0%; }
 
-.details a {
+.details {
   background-color: #5E4485;
+  text-align: center;
+  width: 20%;
+  min-height: 30px;
+  height: 3wh;
+  border-radius: 3px;
+  margin-right: 5px;
+  vertical-align: middle;
+  display: inline-block; }
+
+.details a {
   color: white;
-  padding: 14px 25px;
-  display: inline-block;
+  line-height: 100%;
   text-decoration: none; }
 
-.details a:hover, a:active {
-  background-color: #592e83; }
+a:visited {
+  text-decoration: none;
+  decoration: none; }
 
 h4 {
   font-style: italic;
@@ -6405,7 +6415,7 @@ h4 {
 
 @media (max-width: 767.98px) {
   .container {
-    width: 90%;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto; }
   .img-con {
@@ -6466,5 +6476,16 @@ h4 {
 .message-form {
   width: 100%;
   height: 100%; }
+
+.mybuttons {
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: stretch; }
 
 /*# sourceMappingURL=style.css.map */
