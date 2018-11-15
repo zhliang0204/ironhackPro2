@@ -15,11 +15,20 @@
 {{/if}}
    <br><br>
   {{!-- <div class="foods-wrapper"> --}}
+  {{!-- {{#unless isConnected}}
+  <h1></h1>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHzRX6oD6JTCoQclNGsFZpisj8XKbe1LfJ1ZfX2hti448xXEFEkg" alt="logo" width:"200px" height:"200px">
+  <h1>foodshare</h1>
+   <aside class="quote">
+        <i>"Say No to Food Wastage" </i>
+        </aside>
+  {{/unless}} --}}
   {{#each foods}}
   {{!-- <div class="food-item"> --}}
     {{!-- <div class="quote">
       <h1>Say No to Food Wastage</h1>
       </div> --}}
+      
       <div class="float-lg-left padding "> 
       <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" alt="" style="height: 350px; width:350px; margin:100px 20px 20px 20px; ">
       <h4 class="text-center">{{this.name}}</h4>
