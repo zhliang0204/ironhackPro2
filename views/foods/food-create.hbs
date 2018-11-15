@@ -1,28 +1,40 @@
 {{!-- upload food information --}}
 {{!-- ppt page 9 --}}
-<h3>food information upload</h3>
+<section class="login-block">
+<div class="container">
+<div class="row">
+	<div class="col-md-12 login-sec">
+    <h2 class="text-center">Share your Food</h2>
+    <form class="login-form"  action="/profile/create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text"  class="form-control" name="name">
+    <div>
+  <br>
+   <div class="form-group">
+      <label>Cuisine</label>
+      <input type="text" class="form-control" name="cuisine">
+   </div>
 
-<h2>Upload a new food</h2>
-<form action="/profile/create" method="post" enctype="multipart/form-data">
-  <label>Title</label>
-  <input type="text" name="name">
+  <div class="form-group">
+      <label>Description</label>
+      <input type="text" class="form-control" name="description">
+  <div>
   <br>
 
-  <label>Cuisine</label>
-  <input type="text" name="cuisine">
+  <div class="form-group">
+      <label>Availability</label>
+      <input type='date' class="form-control" name="availability">
+  <div>
+   <br>
+ 
+  <div class="form-group">
+    <label>Select Image</label>
+    <input type="file" class="form-control-file" name="photo">
   <br>
-
-  <label>Description</label>
-  <input type="text" name="description">
-  <br>
-
-  <label>Availability</label>
-   <input type='date' name="availability">
-  <br>
-
-
-  <label>Poster</label>
-  <input type="file" name="photo">
-  <br>
-  <input type="submit" value="SAVE">
-</form>
+    <input type="submit"  class="btn btn-login float-center" value="SAVE">
+  <div>
+  </form>
+</div>
+</div>
+</section>
