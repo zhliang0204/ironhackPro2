@@ -1,6 +1,16 @@
-<h3>order list of foods</h3>
-{{#each messages}}
-  <div>{{this._food.name}}</div>
-  <img src="{{this._food.imgPath}}">
-  <div>{{this.content}}</div>
-{{/each}}
+{{!-- <h3>order list of foods</h3> --}}
+<div style="height: 100vh;">
+  <div class="container" style="margin-top:10vh;">
+  {{#each messages}}
+  <div class="img-con">
+    <div class="img-layout">
+      <img src="{{this._food.imgPath}}" style="width:100%; max-height: 300px;">
+    </div>
+    <div class="text-img"> 
+      <div>Name: &nbsp;{{this._food.name}}</div>
+      <div>Message: &nbsp;{{this.content}}</div>
+    </div>
+  </div>
+  {{/each}}
+  </div>
+</div>

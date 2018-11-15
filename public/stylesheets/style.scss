@@ -43,7 +43,7 @@ body {
 a:visited 
 {
     text-decoration: none; 
-    decoration: none; 
+    // decoration: none; 
 }
 
 h4{
@@ -73,7 +73,7 @@ h4{
 //form
 
 .container{ 
-  background:#fff; 
+  background:#FFF; 
   border-radius: 10px; 
   box-shadow:15px 20px 0px rgba(0,0,0,0.1);
 }
@@ -227,5 +227,4 @@ h4{
 	justify-content: flex-end;
 	align-items: flex-end;
   align-content: stretch;
-  
 }

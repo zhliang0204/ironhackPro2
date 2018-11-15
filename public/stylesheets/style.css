@@ -6341,8 +6341,7 @@ body {
   text-decoration: none; }
 
 a:visited {
-  text-decoration: none;
-  decoration: none; }
+  text-decoration: none; }
 
 h4 {
   font-style: italic;
@@ -6366,7 +6365,7 @@ h4 {
   border-radius: 3px; }
 
 .container {
-  background: #fff;
+  background: #FFF;
   border-radius: 10px;
   box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); }
 

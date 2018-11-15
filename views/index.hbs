@@ -1,29 +1,47 @@
 {{!-- home page before login --}}
 {{!-- PPT page 1 --}}
+
   {{#if isConnected}}
-   <div class="text-center">
-    <form action="/" method="post">
-      <select name="kind">
+   <div class="text-center" style="margin-top:1vh;">
+    <form action="/" method="post" >
+      <select name="kind" style="height:6vh;">
         <option value="name">Name</option>
         <option value="cuisine">Cuisine</option>
-        <option value="distance">distance</option>
+        {{!-- <option value="distance">distance</option> --}}
       </select>
-      <input type="text" name="content">
-      <input type="submit" value="search">
+      <input type="text" name="content" style="border: 1px solid #5E4485; height:6vh;">
+      <input type="submit" value="search" style="height: 6vh; border: 1px solid #5E4485; border-radius:3px; background-color:#5E4485; color:white;">
     </form>
     </div>
 {{/if}}
    <br><br>
   {{!-- <div class="foods-wrapper"> --}}
+  {{!-- {{#unless isConnected}}
+  <h1></h1>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHzRX6oD6JTCoQclNGsFZpisj8XKbe1LfJ1ZfX2hti448xXEFEkg" alt="logo" width:"200px" height:"200px">
+  <h1>foodshare</h1>
+   <aside class="quote">
+        <i>"Say No to Food Wastage" </i>
+        </aside>
+  {{/unless}} --}}
+<div class="container-fluid">
+  <div class="row" style="margin-right:1vh;">
   {{#each foods}}
   {{!-- <div class="food-item"> --}}
     {{!-- <div class="quote">
       <h1>Say No to Food Wastage</h1>
       </div> --}}
-      <div class="float-lg-left padding "> 
-      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" alt="" style="height: 350px; width:350px; margin:100px 20px 20px 20px; ">
-      <h4 class="text-center">{{this.name}}</h4>
-      <h4 class="text-center">{{this.cuisine}}</h4>
+      
+      {{!-- <div class="float-lg-left padding "> --}}
+      <div class="col-sm text-center"> 
+
+      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" style="height: 350px; width:350px; margin:100px 20px 20px 20px; ">
+    
+      {{!-- <h4 class="text-center">Name: &nbsp;{{this.name}}</h4> --}}
+      <h4>Name: &nbsp;{{this.name}}</h4>
+
+      {{!-- <h4 class="text-center">Curisine: &nbsp;{{this.cuisine}}</h4> --}}
+      <h4>Curisine: &nbsp;{{this.cuisine}}</h4>
       {{#if isConnected}} 
       <a href="/error">More</a>
        {{/if}}  
@@ -43,10 +61,11 @@
       </div>
       {{/if}}
        {{!-- </div> --}}
-      {{!-- <img src="{{}}" --}}
   </div> 
   {{!-- {{else}} --}}
     {{!-- <p>There are no foods yet! :(</p> --}}
    
   {{/each}}
+  </div>
+</div>
 {{!-- </div> --}}
