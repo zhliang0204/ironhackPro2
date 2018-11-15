@@ -4,13 +4,13 @@
   {{#if isConnected}}
    <div class="text-center" style="margin-top:1vh;">
     <form action="/" method="post" >
-      <select name="kind" style="height:6vh;">
+      <select name="kind" style="height:6vh; max-height:30px;">
         <option value="name">Name</option>
         <option value="cuisine">Cuisine</option>
         {{!-- <option value="distance">distance</option> --}}
       </select>
-      <input type="text" name="content" style="border: 1px solid #5E4485; height:6vh;">
-      <input type="submit" value="search" style="height: 6vh; border: 1px solid #5E4485; border-radius:3px; background-color:#5E4485; color:white;">
+      <input type="text" name="content" style="border: 1px solid #5E4485; height:6vh; max-height:30px;">
+      <input type="submit" value="search" style="height: 6vh; border: 1px solid #5E4485; border-radius:3px; background-color:#5E4485; color:white; max-height:30px;">
     </form>
     </div>
 {{/if}}
