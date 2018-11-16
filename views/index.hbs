@@ -15,29 +15,15 @@
     </div>
 {{/if}}
    <br><br>
-  {{!-- <div class="foods-wrapper"> --}}
-  {{!-- {{#unless isConnected}}
-  <h1></h1>
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHzRX6oD6JTCoQclNGsFZpisj8XKbe1LfJ1ZfX2hti448xXEFEkg" alt="logo" width:"200px" height:"200px">
-  <h1>foodshare</h1>
-   <aside class="quote">
-        <i>"Say No to Food Wastage" </i>
-        </aside>
-  {{/unless}} --}}
-<div class="container-fluid">
-  {{!-- <div class="row" style="margin-right:1vh;"> --}}
-  <div class="row" style="margin-right:1vh;">
 
+  <div class="container-fluid">
+  <div class="row text-left">
+  
   {{#each foods}}
-  {{!-- <div class="food-item"> --}}
-    {{!-- <div class="quote">
-      <h1>Say No to Food Wastage</h1>
-      </div> --}}
-      
-      {{!-- <div class="float-lg-left padding "> --}}
+
       <div class="col-sm text-center"> 
 
-      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" style="height: 350px; width:350px; margin:100px 20px 20px 20px; ">
+      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" style="height: 350px; width:350px; min-width:300px; margin:100px 20px 20px 20px; ">
     
       {{!-- <h4 class="text-center">Name: &nbsp;{{this.name}}</h4> --}}
       <h4>Name: &nbsp;{{this.name}}</h4>
@@ -54,11 +40,11 @@
       {{/unless}} 
       {{#if ../isConnected}}
       <div class="text-center details">
-      <a href="/foods/{{this._id}}">Details</a>
+        <a href="/foods/{{this._id}}">Details</a>
       </div>
       <br><br>
       
-       <div class="text-center details">
+      <div class="text-center details">
       <a href="/foods/order/{{this._id}}">Order</a>
       </div>
       {{/if}}
