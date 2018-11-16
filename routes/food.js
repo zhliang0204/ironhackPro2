@@ -129,19 +129,31 @@ router.get('/profile/edit/:foodId', ensureAuthenticated, (req, res, next) => {
 // submit edited food information
 // ppt page 10
 // redirect to the user profile after submit successfully
+
 router.post('/profile/edit/:foodId', ensureAuthenticated, uploadCloud.single('photo'), (req, res,next)=> {
   let foodId = req.params.foodId;
-  Food.findByIdAndUpdate(foodId, {
-    name:req.body.name,
-    cuisine : req.body.cuisine, 
-    description: req.body.description, 
-    availability: req.body.availability,
-    imgPath: req.file.url,
-    imgName: req.file.originalname,
-  }).then(food => {
-    res.redirect('/profile')
+  if(req.file) {
+    Food.findByIdAndUpdate(foodId, {
+      name:req.body.name,
+      cuisine : req.body.cuisine,
+      description: req.body.description,
+      availability: req.body.availability,
+      imgPath: req.file.url,
+      imgName: req.file.originalname,
+    }).then(food => {
+     res.redirect('/profile')
+   })
+  } else {
+    Food.findByIdAndUpdate(foodId, {
+      name:req.body.name,
+      cuisine : req.body.cuisine,
+      description: req.body.description,
+      availability: req.body.availability,
+    }).then(food => {
+     res.redirect('/profile')
   })
-})
+  }
+ })
 
 
 // delete food information

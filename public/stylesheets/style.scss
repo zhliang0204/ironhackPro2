@@ -1,10 +1,8 @@
  @import 'node_modules/bootstrap/scss/bootstrap';
 
 body {
-//  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("https://images.pexels.com/photos/349610/pexels-photo-349610.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-  // background-image: linear-gradient(red, yellow);
+  background-image: url("https://images.pexels.com/photos/349610/pexels-photo-349610.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");// background-image: linear-gradient(red, yellow);
   background-image: no-repeat;
   background-attachment: fixed;
   height: 100%;
@@ -15,7 +13,7 @@ body {
   margin: 0%
 }
 
-//index.hbs Details
+//used for all the buttons used
 .details {
   background-color:#5E4485;
   text-align: center;
@@ -26,20 +24,22 @@ body {
   margin-right: 5px;
   vertical-align: middle;
   display: inline-block;
+  color: white;
+   text-decoration: none;
+   
 }
 .details a{
-    // background-color: #5E4485;
     color: white;
     // padding: 14px 25px;
     line-height:100%;
-    // vertical-align: middle;
-    // display: inline-block;
     text-decoration: none;
 }
 
-// .details a:hover, a:active {
-//   background-color: #592e83;
-// }
+
+.details a:hover, a:active {
+  background-color: #592e83;
+  text-decoration: none;
+}
 a:visited 
 {
     text-decoration: none; 
@@ -51,9 +51,9 @@ h4{
   font-size:1.4rem;
   text-align: center;
 }
-// 
+ 
 
-
+//for map
 .distance-container {
   width: 400px;
   top: 10px;
@@ -70,7 +70,8 @@ h4{
   padding: 5px 10px;
   border-radius: 3px; }
 
-//form
+
+//scss used for all forms
 
 .container{ 
   background:#FFF; 
@@ -79,7 +80,7 @@ h4{
 }
 
 .btn-login{
-  background: #DE6262; 
+  background: #5E4485; 
   color:#fff;
    font-weight:600;
   }
@@ -127,7 +128,7 @@ h4{
 }
 
 
-
+//for images
 @media (max-width: 767.98px) { 
   .container {
     max-width: 90%;
@@ -193,6 +194,7 @@ h4{
 
 .container{
   padding-bottom: 5vh;
+  // color:#5E4485;
 }
 
 .mybutton {

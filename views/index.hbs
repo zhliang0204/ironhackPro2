@@ -4,13 +4,13 @@
   {{#if isConnected}}
    <div class="text-center" style="margin-top:1vh;">
     <form action="/" method="post" >
-      <select name="kind" style="height:6vh;">
+      <select name="kind" style="height:6vh; max-height:30px;">
         <option value="name">Name</option>
         <option value="cuisine">Cuisine</option>
         {{!-- <option value="distance">distance</option> --}}
       </select>
-      <input type="text" name="content" style="border: 1px solid #5E4485; height:6vh;">
-      <input type="submit" value="search" style="height: 6vh; border: 1px solid #5E4485; border-radius:3px; background-color:#5E4485; color:white;">
+      <input type="text" name="content" style="border: 1px solid #5E4485; height:6vh; max-height:30px;">
+      <input type="submit" value="search" style="height: 6vh; border: 1px solid #5E4485; border-radius:3px; background-color:#5E4485; color:white; max-height:30px;">
     </form>
     </div>
 {{/if}}
@@ -24,8 +24,10 @@
         <i>"Say No to Food Wastage" </i>
         </aside>
   {{/unless}} --}}
-{{!-- <div class="container-fluid">
-  <div class="row" style="margin-right:1vh;"> --}}
+<div class="container-fluid">
+  {{!-- <div class="row" style="margin-right:1vh;"> --}}
+  <div class="row" style="margin-right:1vh; object-fit :cover;">
+
   {{#each foods}}
   {{!-- <div class="food-item"> --}}
     {{!-- <div class="quote">
@@ -41,7 +43,7 @@
       <h4>Name: &nbsp;{{this.name}}</h4>
 
       {{!-- <h4 class="text-center">Curisine: &nbsp;{{this.cuisine}}</h4> --}}
-      <h4>Curisine: &nbsp;{{this.cuisine}}</h4>
+      <h4>Cuisine: &nbsp;{{this.cuisine}}</h4>
       {{#if isConnected}} 
       <a href="/error">More</a>
        {{/if}}  
@@ -51,14 +53,14 @@
       </div>
       {{/unless}} 
       {{#if ../isConnected}}
-      <div class="text-center details">
-      <a href="/foods/{{this._id}}">Details</a>
-      </div>
+      {{!-- <div class="text-center details"> --}}
+      <a href="/foods/{{this._id}}" class="details">Details</a>
+      {{!-- </div> --}}
       <br><br>
       
-       <div class="text-center details">
-      <a href="/foods/order/{{this._id}}">Order</a>
-      </div>
+       {{!-- <div class="text-center details"> --}}
+      <a href="/foods/order/{{this._id}}"  class="details">Want</a>
+      {{!-- </div> --}}
       {{/if}}
        {{!-- </div> --}}
   </div> 
@@ -68,4 +70,4 @@
   {{/each}}
   </div>
 </div>
-{{!-- </div> --}}
+</div>
