@@ -35,9 +35,9 @@ router.post('/profile/create',ensureAuthenticated, uploadCloud.single('photo'),(
   .catch(error => {
     console.log(error)
   })
- })
+})
 
- router.get('/error',ensureAuthenticated, (req,res,next)=> {
+router.get('/error',ensureAuthenticated, (req,res,next)=> {
   res.render('auth/login', {alert:"Please Login"});
 })
 
@@ -55,7 +55,6 @@ router.get('/foods/:foodId', ensureAuthenticated, (req, res, next)=> {
 // food order information
 router.get('/foods/order/:foodId', ensureAuthenticated, (req, res, next)=> {
   let foodId = req.params.foodId;
-  
   Food.findById(foodId).then(food=> {
     res.render('foods/food-order',{food})
   })
@@ -140,7 +139,6 @@ router.post('/profile/edit/:foodId', ensureAuthenticated, uploadCloud.single('ph
   }
 })
 
-
 // delete food information
 router.get("/profile/delete/:foodId", ensureAuthenticated, (req, res, next) => {
   let foodId = req.params.foodId;
@@ -148,7 +146,6 @@ router.get("/profile/delete/:foodId", ensureAuthenticated, (req, res, next) => {
     res.redirect('/profile')
   })
 })
-
 
 // list all orders of one users
 router.get("/profile/orders", ensureAuthenticated, (req, res, next) => {

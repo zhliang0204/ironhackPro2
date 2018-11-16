@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
-
 const userSchema = new Schema({
   username: String,
   password: String,
@@ -15,7 +14,6 @@ const userSchema = new Schema({
       enum : ['USER', 'ADMIN'],
       default : 'USER'
     },
- 
 }, {
   timestamps: {
     createdAt: 'created_at',

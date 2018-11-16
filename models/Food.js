@@ -9,7 +9,6 @@ const foodSchema = new Schema({
    availability:{type:String},
    _owner: { type: Schema.Types.ObjectId, ref: 'User' },
    status:{type:Number,enum:[0,1],default:1}
-
   }, {
     timestamps: {
       createdAt: 'created_at',

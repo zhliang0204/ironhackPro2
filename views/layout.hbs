@@ -10,69 +10,53 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
- <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet'/>
- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
- <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
- {{!-- bootstrap --}}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet'/>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <body>
-  {{!-- nav bar different   --}}
-  {{!-- use isConnected, isAdmin to check --}}
-  {{!-- reference w5d1-passport-role --}}
-  
    <nav class="navbar navbar-expand-md navbar-light" style="background-color:  #5E4485;">
-        <a class="navbar-brand  text-white" href="#"><img src="/images/logo1.png" alt="Food Share" style="width:5vh;" ></a>
-        {{!-- <a href="#" class="pull-left"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHzRX6oD6JTCoQclNGsFZpisj8XKbe1LfJ1ZfX2hti448xXEFEkg"></a>  --}}
-        {{!-- <a class="navbar-brand" href="#" style="padding: 4px;margin:auto"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHzRX6oD6JTCoQclNGsFZpisj8XKbe1LfJ1ZfX2hti448xXEFEkg" style="height:100%;width: auto;"></a> --}}
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand  text-white" href="#"><img src="/images/logo1.png" alt="Food Share" style="width:5vh;" ></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link  text-white btn-outline-secondary " href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-               {{#unless isConnected}}
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link  text-white btn-outline-secondary " href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          {{#unless isConnected}}
             <li class="nav-item active">
               <a class="nav-link   text-white btn-outline-secondary " href="/auth/login">Login</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link  text-white btn-outline-secondary " href="/auth/signup">Signup</a>
             </li>
-            {{/unless}}
-            {{#if isConnected}}
+          {{/unless}}
+          {{#if isConnected}}
             <li class="nav-item active">
-            <a class="nav-link  text-white btn-outline-secondary " href="/auth/logout">Logout</a>
+              <a class="nav-link  text-white btn-outline-secondary " href="/auth/logout">Logout</a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link  text-white btn-outline-secondary " href="/profile">Profile</a>
+              <a class="nav-link  text-white btn-outline-secondary " href="/profile">Profile</a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link  text-white btn-outline-secondary " href="/profile/create">Upload</a>
+              <a class="nav-link  text-white btn-outline-secondary " href="/profile/create">Upload</a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link  text-white btn-outline-secondary " href="/profile/orders">Orders</a>
+              <a class="nav-link  text-white btn-outline-secondary " href="/profile/orders">Orders</a>
             </li>
-          
-            {{/if}}
-
-          </ul>
+          {{/if}}
+        </ul>
         </div>
     </nav>  
-  
-{{!-- <div class="container"> </div> --}}
 
-{{{body}}}
+  {{{body}}}
 
- 
-{{!-- #5E4485 --}}
-{{!-- #596a74 --}}
   <script src="/javascripts/geodatasource-cr.min.js"></script>
   <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

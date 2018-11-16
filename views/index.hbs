@@ -4,7 +4,6 @@
       <select name="kind" style="height:6vh; max-height:30px;">
         <option value="name">Name</option>
         <option value="cuisine">Cuisine</option>
-        {{!-- <option value="distance">distance</option> --}}
       </select>
       <input type="text" name="content" style="border: 1px solid #5E4485; height:6vh; max-height:30px;">
       <input type="submit" value="search" style="height: 6vh; border: 1px solid #5E4485; border-radius:3px; background-color:#5E4485; color:white; max-height:30px;">
@@ -20,8 +19,8 @@
       <h4>Name: &nbsp;{{this.name}}</h4>
       <h4>Cuisine: &nbsp;{{this.cuisine}}</h4>
       {{#if isConnected}} 
-      <a href="/error">More</a>
-       {{/if}}  
+        <a href="/error">More</a>
+      {{/if}}  
       {{#unless ../isConnected}}
         <div class="text-center details">
           <a href="/error">More</a>
@@ -35,5 +34,4 @@
   </div>  
   {{/each}}
   </div>
-</div>
 </div>
