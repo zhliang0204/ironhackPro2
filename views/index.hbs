@@ -1,8 +1,5 @@
-{{!-- home page before login --}}
-{{!-- PPT page 1 --}}
-
-  {{#if isConnected}}
-   <div class="text-center" style="margin-top:1vh;">
+{{#if isConnected}}
+  <div class="text-center" style="margin-top:1vh;">
     <form action="/" method="post" >
       <select name="kind" style="height:6vh; max-height:30px;">
         <option value="name">Name</option>
@@ -12,47 +9,30 @@
       <input type="text" name="content" style="border: 1px solid #5E4485; height:6vh; max-height:30px;">
       <input type="submit" value="search" style="height: 6vh; border: 1px solid #5E4485; border-radius:3px; background-color:#5E4485; color:white; max-height:30px;">
     </form>
-    </div>
+  </div>
 {{/if}}
-   <br><br>
-
-  <div class="container-fluid">
+<br><br>
+<div class="container-fluid">
   <div class="row text-left">
-  
   {{#each foods}}
-
-      <div class="col-sm text-center"> 
-
-      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" style="height: 350px; width:350px; min-width:300px; margin:100px 20px 20px 20px; ">
-    
-      {{!-- <h4 class="text-center">Name: &nbsp;{{this.name}}</h4> --}}
+    <div class="col-sm text-center"> 
+      <img src="{{this.imgPath}}" class="img-fluid img-thumbnail" style="height: 350px; width:350px; min-width:300px; margin-top:2vh;">
       <h4>Name: &nbsp;{{this.name}}</h4>
-
-      {{!-- <h4 class="text-center">Curisine: &nbsp;{{this.cuisine}}</h4> --}}
-      <h4>Curisine: &nbsp;{{this.cuisine}}</h4>
+      <h4>Cuisine: &nbsp;{{this.cuisine}}</h4>
       {{#if isConnected}} 
       <a href="/error">More</a>
        {{/if}}  
       {{#unless ../isConnected}}
-      <div class="text-center details">
-      <a href="/error">More</a>
-      </div>
+        <div class="text-center details">
+          <a href="/error">More</a>
+        </div>
       {{/unless}} 
       {{#if ../isConnected}}
-      <div class="text-center details">
-        <a href="/foods/{{this._id}}">Details</a>
-      </div>
-      <br><br>
-      
-      <div class="text-center details">
-      <a href="/foods/order/{{this._id}}">Order</a>
-      </div>
+        <a href="/foods/{{this._id}}" class="details">Details</a>
+        <br><br>
+        <a href="/foods/order/{{this._id}}"  class="details">Want</a>
       {{/if}}
-       {{!-- </div> --}}
-  </div> 
-  {{!-- {{else}} --}}
-    {{!-- <p>There are no foods yet! :(</p> --}}
-   
+  </div>  
   {{/each}}
   </div>
 </div>

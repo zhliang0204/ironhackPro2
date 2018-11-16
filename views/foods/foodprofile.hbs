@@ -1,8 +1,4 @@
 {{!-- list all food profile of the user(user who log in) --}}
-{{!-- ppt page 7 --}}
-
-
-{{!-- <div class="foods-wrapper"> --}}
 <div style="height: 100vh;">
   <div class="container" style="margin-top:10vh; padding-top: 2vh;">
     {{#each foods}}
@@ -14,11 +10,6 @@
           <h4 class="text-center">Name: &nbsp;{{this.name}}</h4>
           <h4 class="text-center">Cuisine: &nbsp;{{this.cuisine}}</h4>
           <h4>availability: &nbsp;{{this.availability}}</h4>
-
-          {{!-- {{#if this.status}}
-            <h4>No Message</h4>
-          {{/if}} --}}
-        
           <div class="mybuttons">
             {{#unless this.status}}
               <div class="text-center details">
@@ -26,11 +17,9 @@
               </div>
               <br>
             {{/unless}}
-          
             <div class="text-center details">
               <a href="/profile/edit/{{this._id}}">Edit</a>
             </div> 
-          
             <br>
             <div class="text-center details">
               <a href="/profile/delete/{{this._id}}">Delete</a>
@@ -38,10 +27,8 @@
           </div>
         </div>
       </div>
-
     {{else}}
           <p>There are no foods yet! :(</p>
     {{/each}}
-
   </div>
 </div>

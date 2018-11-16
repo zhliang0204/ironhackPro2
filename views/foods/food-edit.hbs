@@ -1,51 +1,52 @@
 {{!-- edit food information by user --}}
-{{!-- ppt page 10 --}}
-{{!-- <h3>food information edit</h3>
-
-<h2>Edit food</h2> --}}
 <section class="login-block">
-<div class="container">
-<div class="row">
-<div class="col-md-12 login-sec">
-<h2 class="text-center">Your Current Information</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 login-sec">
+      <h2 class="text-center">Your Current Information</h2>
 
-<form  class="login-form" action="/profile/edit/{{food._id}}" method="post" enctype="multipart/form-data">
-  <div class="form-group">
-  <label>Title</label>
-  <input type="text" name="name" class="form-control" value="{{food.name}}">
+      <form  class="login-form" action="/profile/edit/{{food._id}}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" name="name" class="form-control" value="{{food.name}}">
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label>Cuisine</label>
+          <input type="text" name="cuisine" class="form-control" value={{food.cuisine}}>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" name="description"  class="form-control" value={{food.description}}>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label>Availability</label>
+          <input type='date' name="availability" class="form-control"  value={{food.availability}}>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label>Image</label>
+          <img src="{{food.imgPath}}" alt="{{food.imgName}}" class="img-fluid img-thumbnail">
+        </div>
+          <br>
+
+        <div class="form-group">
+          <label>Select Image</label>
+          <input type="file"  class="form-control-file" name="photo">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <input type="submit" class="btn btn-login float-right " value="Update">
+        </div>
+      </form>
+    </div>
+    </div>
   </div>
-  <br>
-
-  <div class="form-group">
-  <label>Cuisine</label>
-  <input type="text" name="cuisine" class="form-control" value={{food.cuisine}}>
-  </div>
-  <br>
-
-   <div class="form-group">
-  <label>Description</label>
-  <input type="text" name="description"  class="form-control" value={{food.description}}>
-  </div>
-  <br>
-
-   <div class="form-group">
-  <label>Availability</label>
-   <input type='date' name="availability" class="form-control"  value={{food.availability}}>
-   </div>
-  <br>
-
- <div class="form-group">
-  <label>Image</label>
-   <img src="{{food.imgPath}}" alt="{{food.imgName}}" class="img-fluid img-thumbnail">
-   </div>
-  <br>
-
- <div class="form-group">
-  <label>Select Image</label>
-  <input type="file"  class="form-control-file" name="photo">
-  </div>
-
-  <br>
- <div class="form-group">
-  <input type="submit" class="btn btn-login float-right" value="Update">
-</form>
+</section>

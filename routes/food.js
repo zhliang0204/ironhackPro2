@@ -15,15 +15,12 @@ function ensureAuthenticated(req, res, next){
   }
 }
 
-//test
 // create or upload new food information
-// ppt page 9
 router.get('/profile/create',ensureAuthenticated, (req,res,next)=> {
   res.render('foods/food-create');
 })
 
 // submit create or upload new food information
-// ppt page 9
 // redirect to the user profile after submit successfully
 router.post('/profile/create',ensureAuthenticated, uploadCloud.single('photo'),(req, res, next)=> {
   const { name, cuisine, description, availability } = req.body;
@@ -41,15 +38,10 @@ router.post('/profile/create',ensureAuthenticated, uploadCloud.single('photo'),(
  })
 
  router.get('/error',ensureAuthenticated, (req,res,next)=> {
-
   res.render('auth/login', {alert:"Please Login"});
-
 })
 
-
-
 // detail information about one food
-// ppt page 5
 router.get('/foods/:foodId', ensureAuthenticated, (req, res, next)=> {
   let id = req.params.foodId
   Food.findById(id)
@@ -61,7 +53,6 @@ router.get('/foods/:foodId', ensureAuthenticated, (req, res, next)=> {
 })
 
 // food order information
-// ppt page 6
 router.get('/foods/order/:foodId', ensureAuthenticated, (req, res, next)=> {
   let foodId = req.params.foodId;
   
@@ -71,7 +62,6 @@ router.get('/foods/order/:foodId', ensureAuthenticated, (req, res, next)=> {
 });
 
 // submit the order information
-// ppt page 6
 // redirect to the home page(login) after submit successfully
 router.post('/foods/order/:foodId', ensureAuthenticated,(req, res, next) => {
   let foodId = req.params.foodId;
@@ -96,7 +86,6 @@ router.post('/foods/order/:foodId', ensureAuthenticated,(req, res, next) => {
 });
 
 // list brief information of all food provieded by one user 
-// ppt page 7
 router.get('/profile', ensureAuthenticated, (req, res, next) => {
   let userId = req.user.id;
   Food.find({_owner:  userId}).then(foods => {
@@ -117,9 +106,7 @@ router.get('/profile/message/:foodId', ensureAuthenticated, (req, res, next) => 
 })
 
 // user edit food information 
-// ppt page 10
 router.get('/profile/edit/:foodId', ensureAuthenticated, (req, res, next) => {
-  // id: foodid
   let foodId = req.params.foodId;
   Food.findById(foodId).then(food => {
     res.render('foods/food-edit', {food})
@@ -127,7 +114,6 @@ router.get('/profile/edit/:foodId', ensureAuthenticated, (req, res, next) => {
 })
 
 // submit edited food information
-// ppt page 10
 // redirect to the user profile after submit successfully
 router.post('/profile/edit/:foodId', ensureAuthenticated, uploadCloud.single('photo'), (req, res,next)=> {
   let foodId = req.params.foodId;
@@ -152,8 +138,6 @@ router.post('/profile/edit/:foodId', ensureAuthenticated, uploadCloud.single('ph
      res.redirect('/profile')
   })
   }
-
-
 })
 
 

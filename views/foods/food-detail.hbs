@@ -1,10 +1,7 @@
 {{!-- detail food information --}}
-{{!-- ppt page 5 --}}
-{{!-- after click detail in the home page(already login) --}}
 <div style="height: 100vh;">
   <div class="container" style="margin-top:10vh;">
     <div class="text-center row"><h3 class="col">{{food.name}}</h3></div>
-
     <div class="img-con">
       <div class="img-layout">
         <img src="{{food.imgPath}}" style="width:80%;">
@@ -13,24 +10,16 @@
         <h4>cuisine: {{food.cuisine}}</h4>
         <h4>description: {{food.description}}</h4>
         <h4 id="address1">address :{{user.address1}} &nbsp; {{user.address2}}</h4>
-        {{!-- {{#if user.address2}} --}}
-        {{!-- <h4 id="address2">{{user.address2}}</h4> --}}
-        {{!-- {{/if}} --}}
         <h4>PINCODE: {{user.pincode}}</h4>
         <h4 id="region">Region: {{user.region}}</h4>
         <h4 id="country">Country: {{user.country}}</h4>
       </div> 
     </div>
-
-    {{!-- <div id='map' style='width: 90%; height: 300px;'></div> --}}
     <div id='map'></div>
-
     <div id='distance' class='distance-container'></div>
-
     <div class="mybutton">
-      <button class="btn btn-info" style="background-color:#5E4485;border-color:#5E4485;"><a href="/foods/order/{{food.id}}" style="color: white; text-decoration:none; background-color:#5E4485;">Order</a></button>
+      <button class="btn btn-info" style="background-color:#5E4485;border-color:#5E4485;"><a href="/foods/order/{{food.id}}" style="color: white; text-decoration:none; background-color:#5E4485;">Want</a></button>
       <button class="btn btn-info" style="background-color:#5E4485;border-color:#5E4485;"><a href="/" style="color: white; text-decoration:none; background-color:#5E4485">Return</a></button>
-
     </div>
   </div>
 </div>

@@ -6333,11 +6333,17 @@ body {
   border-radius: 3px;
   margin-right: 5px;
   vertical-align: middle;
-  display: inline-block; }
+  display: inline-block;
+  color: white;
+  text-decoration: none; }
 
 .details a {
   color: white;
   line-height: 100%;
+  text-decoration: none; }
+
+.details a:hover, a:active {
+  background-color: #592e83;
   text-decoration: none; }
 
 a:visited {

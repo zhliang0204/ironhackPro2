@@ -34,34 +34,10 @@ let users = [
   }
 ]
 
-let foods = [
-  {
-    name:"Chole Bature",
-    cuisine:"indian",
-    description:"lots of foods can be eaten by 2-3 people"
-
-  }
-]
-
-let message = [
-  {
-    content : "i want this food",
-    sender: "Binu",
-    receiver:"rahul"
-  },
-]
 
 User.create(users)
   .then(users =>
     console.log(`Created ${users.length} users`)
-  )
-Food.create(foods)
-  .then(foods =>
-    console.log(`Created ${foods.length} foods`)
-  )
-Message.create(message)
-  .then(message =>
-    console.log(`Created ${message.length} message`)
   )
 
 User.deleteMany()
