@@ -14,10 +14,6 @@
       <input id="password" type="password"   class="form-control" name="password" placeholder="Your password">
     </div> 
     <div class="form-check">
-      {{!-- <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
-        <small>Remember Me</small>
-      </label> --}}
       {{#if message }}
         <div class="error-message">{{ message }}</div>
       {{/if}}
@@ -28,7 +24,10 @@
         <a href="/auth/signup">Signup</a>
       </p>
     </div>
-    </div>
-    </div>
   </form>
+
+  <div>
+    <a href="/auth/slack">log with slack</a>
+    {{!-- <a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=your_client_id"><img src="https://api.slack.com/img/sign_in_with_slack.png" /></a> --}}
+  </div>
 </section>

@@ -19,6 +19,19 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
+router.get("/slack", passport.authenticate("slack"));
+// router.get("/slack/callback", passport.authenticate("slack", {
+//   successRedirect: "/",
+//   failureRedirect: "/",
+//   failureFlash: true,
+//   passReqToCallback: true
+// }));
+
+router.get('/slack/callback', 
+  passport.authorize('slack', { failureRedirect: '/auth/login' }),
+  (req, res) => res.redirect('/')
+);
+
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });

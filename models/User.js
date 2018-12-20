@@ -4,6 +4,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email : String,
+  slackID: String,
   address1: String,
   address2:String,
   pincode: Number,
