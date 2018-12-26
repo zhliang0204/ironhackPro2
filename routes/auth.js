@@ -20,17 +20,25 @@ router.post("/login", passport.authenticate("local", {
 }));
 
 router.get("/slack", passport.authenticate("slack"));
-// router.get("/slack/callback", passport.authenticate("slack", {
-//   successRedirect: "/",
-//   failureRedirect: "/",
-//   failureFlash: true,
-//   passReqToCallback: true
-// }));
+
 
 router.get('/slack/callback', 
-  passport.authorize('slack', { failureRedirect: '/auth/login' }),
-  (req, res) => res.redirect('/')
+  passport.authenticate('slack', { failureRedirect: '/auth/login' }),
+  (req, res) => res.redirect('/profile')
 );
+
+router.get('/google',
+  passport.authenticate('google', { 
+    // scope:"email"
+    scope:['email']
+  }));
+
+
+router.get('/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/auth/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -46,9 +54,6 @@ router.post("/signup", (req, res, next) => {
   const pincode = req.body.pincode;
   const country = req.body.country;
   const region = req.body.region;
-
-  console.log("country: ", country);
-  console.log("region: ", region);
 
 
   if (username === "" || password === "") {

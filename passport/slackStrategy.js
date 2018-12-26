@@ -4,12 +4,10 @@ const User = require('../models/User');
 // const bcrypt = require('bcrypt');
 
 passport.use(new SlackStrategy({
-  clientID: '508255248276.510757630310',
-  clientSecret: "0f7fd8596de9a11b52d44b9cf8a92c70",
+  clientID: process.env.SLACK_ID,
+  clientSecret: process.env.SLACK_SECRET,
   skipUserProfile: false
 }, (accessToken, refreshToken, profile, done) => {
-  // done(null, profile)
-  // console.log("profile", profile)
   User.findOne({ slackID: profile.user.id })
   .then(user => {
     // if (error) {
